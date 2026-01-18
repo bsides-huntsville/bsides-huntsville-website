@@ -31,6 +31,7 @@
 
       <nav class="nav" aria-label="Primary">
         <a href="#about">About</a>
+        <a href="#countdown">Countdown</a>
         <a href="#cfp">CFP</a>
         <a href="#tickets">Tickets</a>
         <a href="#sponsors">Sponsors</a>
@@ -58,9 +59,9 @@
           </div>
 
           <ul class="hero-meta" aria-label="Event highlights">
-            <li><strong>Date:</strong> TBD</li>
-            <li><strong>Location:</strong> TBD</li>
-            <li><strong>CFP:</strong> TBD</li>
+            <li><strong>Date:</strong> April 16–17, 2027</li>
+            <li><strong>Location:</strong> Huntsville, AL (TBD)</li>
+            <li><strong>CFP:</strong> Coming soon</li>
           </ul>
         </div>
 
@@ -79,6 +80,36 @@
             </p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ✅ COUNTDOWN TIMER SECTION -->
+    <section id="countdown" class="countdown section alt">
+      <div class="container">
+        <h2 id="countdown-title">BSides Huntsville starts in</h2>
+
+        <div class="timer" aria-label="Countdown timer">
+          <div class="time-box">
+            <span id="days">0</span>
+            <small>Days</small>
+          </div>
+          <div class="time-box">
+            <span id="hours">0</span>
+            <small>Hours</small>
+          </div>
+          <div class="time-box">
+            <span id="minutes">0</span>
+            <small>Minutes</small>
+          </div>
+          <div class="time-box">
+            <span id="seconds">0</span>
+            <small>Seconds</small>
+          </div>
+        </div>
+
+        <p class="muted countdown-note">
+          Event dates: Friday–Saturday, April 16–17, 2027 (Central Time).
+        </p>
       </div>
     </section>
 
@@ -233,6 +264,45 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Countdown: April 16–17, 2027 (Fri–Sat), Central Time
+    const startDate = new Date("2027-04-16T09:00:00-05:00"); // Fri 9:00 AM CDT
+    const endDate   = new Date("2027-04-17T18:00:00-05:00"); // Sat 6:00 PM CDT
+
+    function updateCountdown() {
+      const now = new Date();
+      const title = document.getElementById("countdown-title");
+      const timer = document.querySelector(".timer");
+
+      let diff;
+
+      if (now < startDate) {
+        diff = startDate - now;
+        title.textContent = "BSides Huntsville starts in";
+        timer.style.display = "flex";
+      } else if (now >= startDate && now <= endDate) {
+        diff = endDate - now;
+        title.textContent = "BSides Huntsville is live! Ends in";
+        timer.style.display = "flex";
+      } else {
+        title.textContent = "BSides Huntsville 2027 has concluded";
+        timer.style.display = "none";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+      document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+      document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>

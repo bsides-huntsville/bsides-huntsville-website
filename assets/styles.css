@@ -269,6 +269,48 @@ li{ margin: 6px 0; }
   flex-wrap: wrap;
 }
 
+/* ✅ Countdown Timer */
+.countdown {
+  text-align: center;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.time-box {
+  background: rgba(0,0,0,.25);
+  border: 1px solid rgba(200,16,46,.55);
+  border-radius: 14px;
+  padding: 14px 16px;
+  min-width: 95px;
+}
+
+.time-box span {
+  display: block;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.time-box small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.countdown-note{
+  margin-top: 14px;
+  font-size: 13px;
+}
+
 /* Responsive */
 @media (max-width: 900px){
   .hero-inner{ grid-template-columns: 1fr; }
