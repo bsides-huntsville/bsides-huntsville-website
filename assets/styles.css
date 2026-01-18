@@ -1,3 +1,4 @@
+/* assets/styles.css */
 :root{
   --bg: #070B12;
   --panel: rgba(255,255,255,.06);
@@ -165,11 +166,20 @@ h1{
 .hero-meta{
   list-style:none;
   padding: 0;
-  margin: 0;
+  margin: 16px 0 0;
   color: var(--muted);
 }
 .hero-meta li{ padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
 .hero-meta li:last-child{ border-bottom: none; }
+
+/* New hero vibe panel */
+.hero-vibe{
+  margin-top: 14px;
+}
+.hero-vibe h3{
+  margin: 0 0 6px;
+  font-size: 16px;
+}
 
 .hero-card .card{
   background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
@@ -253,6 +263,10 @@ h2{
   gap: 12px;
 }
 
+.badge-panel{
+  margin-top: 16px;
+}
+
 ul{ margin: 10px 0 0; }
 li{ margin: 6px 0; }
 
@@ -269,7 +283,7 @@ li{ margin: 6px 0; }
   flex-wrap: wrap;
 }
 
-/* ✅ Countdown Timer */
+/* Countdown Timer */
 .countdown {
   text-align: center;
 }
