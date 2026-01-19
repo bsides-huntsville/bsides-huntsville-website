@@ -10,13 +10,15 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
-        <h1>BSides Huntsville</h1>
+        <h1 class="brand-title">BSides Huntsville</h1>
       </div>
 
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#countdown">Countdown</a>
         <a href="#cfp">CFP</a>
@@ -26,19 +28,19 @@
       </nav>
 
       <div class="header-cta">
-        <a class="btn ghost" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener">
+        <a class="btn ghost" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener noreferrer">
           Submit to CFP
         </a>
-        <a class="btn primary" href="https://www.eventbrite.com/e/bsides-huntsville-tickets-1980831909564" target="_blank" rel="noopener">
+        <a class="btn primary" href="https://www.eventbrite.com/e/bsides-huntsville-tickets-1980831909564" target="_blank" rel="noopener noreferrer">
           Register ($20)
         </a>
       </div>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" id="top">
       <div class="container">
         <h2>BSides Huntsville 2027</h2>
         <p class="subhead">
@@ -52,17 +54,17 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="https://www.eventbrite.com/e/bsides-huntsville-tickets-1980831909564" target="_blank">
+          <a class="btn primary" href="https://www.eventbrite.com/e/bsides-huntsville-tickets-1980831909564" target="_blank" rel="noopener noreferrer">
             Register on Eventbrite
           </a>
-          <a class="btn" href="https://sessionize.com/bsides-huntsville/" target="_blank">
+          <a class="btn" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener noreferrer">
             Submit a Talk or Workshop
           </a>
         </div>
 
         <div class="panel">
           <h3>By the community. For the community.</h3>
-          <p>
+          <p class="muted">
             Everyone is welcome to submit a talk, workshop, demo, or village.
             First-time speaker? Do it anyway. If you have something useful, interesting,
             or hard-earned to share — we want it.
@@ -71,7 +73,7 @@
 
         <div class="panel note">
           <h3>Bring your Meshtastic nodes</h3>
-          <p>
+          <p class="muted">
             Expect hands-on learning and experimentation around mesh networking.
             Bring your gear and your curiosity.
           </p>
@@ -84,7 +86,7 @@
       <div class="container center">
         <h2 id="countdown-title">BSides Huntsville starts in</h2>
 
-        <div class="timer">
+        <div class="timer" aria-label="Countdown timer">
           <div><span id="days">0</span><small>Days</small></div>
           <div><span id="hours">0</span><small>Hours</small></div>
           <div><span id="minutes">0</span><small>Minutes</small></div>
@@ -126,11 +128,11 @@
           and are evaluated equally based on educational value.
         </p>
 
-        <a class="btn primary" href="https://sessionize.com/bsides-huntsville/" target="_blank">
+        <a class="btn primary" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener noreferrer">
           Submit via Sessionize
         </a>
 
-        <p class="muted">
+        <p class="muted" style="margin-top: 12px;">
           First-time speakers are strongly encouraged to submit.
         </p>
       </div>
@@ -143,12 +145,20 @@
 
         <div class="panel">
           <p>
-            Registration is handled through Eventbrite.
+            Registration is handled through Eventbrite:
           </p>
 
-          <a class="btn primary" href="https://www.eventbrite.com/e/bsides-huntsville-tickets-1980831909564" target="_blank">
+          <a class="btn primary" href="https://www.eventbrite.com/e/bsides-huntsville-tickets-1980831909564" target="_blank" rel="noopener noreferrer">
             Open Registration
           </a>
+
+          <!-- ⚠️ PUBLIC PASSWORD (requested) -->
+          <div class="warning" style="margin-top: 14px;">
+            <strong>Test Access Password:</strong> <code>BSidesRocketCity</code>
+            <div class="muted" style="margin-top: 6px;">
+              Note: This website is public; displaying this password means anyone can use it.
+            </div>
+          </div>
 
           <h3 style="margin-top: 16px;">Early Registration Bonus</h3>
           <p class="muted">
@@ -169,10 +179,10 @@
       <div class="container">
         <h2>Villages</h2>
 
-        <div class="grid">
+        <div class="grid-3">
           <div class="panel">
             <h3>Lockpicking Village</h3>
-            <p>
+            <p class="muted">
               Learn the basics, level up your skills, and get hands-on with practice locks.
               Beginner-friendly and community-taught.
             </p>
@@ -180,10 +190,20 @@
 
           <div class="panel">
             <h3>Meshtastic Meetup</h3>
-            <p>
+            <p class="muted">
               Bring your nodes and radios. Expect experimentation, troubleshooting,
               and nerdy mesh networking discussions.
             </p>
+          </div>
+
+          <div class="panel">
+            <h3>More coming soon</h3>
+            <p class="muted">
+              Want to run a village? Submit through the CFP.
+            </p>
+            <a class="btn" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener noreferrer">
+              Submit a Village Proposal
+            </a>
           </div>
         </div>
       </div>
@@ -220,6 +240,7 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Countdown: April 16–17, 2027 (CDT)
     const startDate = new Date("2027-04-16T09:00:00-05:00");
     const endDate   = new Date("2027-04-17T18:00:00-05:00");
 
@@ -232,9 +253,11 @@
       if (now < startDate) {
         diff = startDate - now;
         title.textContent = "BSides Huntsville starts in";
+        timer.style.display = "flex";
       } else if (now <= endDate) {
         diff = endDate - now;
         title.textContent = "BSides Huntsville is live! Ends in";
+        timer.style.display = "flex";
       } else {
         title.textContent = "BSides Huntsville 2027 has concluded";
         timer.style.display = "none";

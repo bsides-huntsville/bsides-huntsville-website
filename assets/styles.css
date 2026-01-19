@@ -12,8 +12,9 @@
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
+
 body {
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   background: radial-gradient(1200px 600px at 20% 0%, rgba(21,101,192,0.18), transparent 60%),
               radial-gradient(1000px 500px at 80% 10%, rgba(198,40,40,0.20), transparent 55%),
               var(--bg);
@@ -28,6 +29,9 @@ a:hover { text-decoration: underline; }
   width: min(1100px, calc(100% - 32px));
   margin: 0 auto;
 }
+
+.center { text-align: center; }
+.muted { color: var(--muted); }
 
 .skip-link {
   position: absolute;
@@ -58,15 +62,10 @@ a:hover { text-decoration: underline; }
   padding: 12px 0;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.brand-logo {
-  width: 160px;
-  height: auto;
-  display: block;
+.brand-title {
+  margin: 0;
+  font-size: 1.1rem;
+  letter-spacing: 0.3px;
 }
 
 .nav {
@@ -85,36 +84,19 @@ a:hover { text-decoration: underline; }
 .header-cta { display: flex; gap: 10px; }
 
 .hero {
-  padding: 60px 0 24px;
+  padding: 56px 0 26px;
 }
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: 28px;
-  align-items: start;
-}
-.hero h1 {
+.hero h2 {
   margin: 0 0 10px;
   font-size: clamp(2rem, 4vw, 3rem);
-  letter-spacing: 0.2px;
 }
 .subhead {
   margin: 0 0 18px;
   color: var(--muted);
   font-size: 1.05rem;
 }
-
-.hero-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+.meta {
   margin: 0 0 18px;
-}
-.pill {
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.03);
-  padding: 8px 10px;
-  border-radius: 999px;
   color: var(--muted);
 }
 
@@ -123,20 +105,6 @@ a:hover { text-decoration: underline; }
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 14px;
-}
-
-.hero-art .hero-card {
-  border: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 18px;
-}
-.hero-art img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10px;
 }
 
 .section {
@@ -148,14 +116,8 @@ a:hover { text-decoration: underline; }
   border-bottom: 1px solid var(--border);
 }
 
-h2 {
-  margin: 0 0 14px;
-  font-size: 1.75rem;
-}
-h3 {
-  margin: 0 0 8px;
-  font-size: 1.1rem;
-}
+h2 { margin: 0 0 14px; font-size: 1.75rem; }
+h3 { margin: 0 0 8px; font-size: 1.1rem; }
 
 .panel {
   border: 1px solid var(--border);
@@ -163,15 +125,12 @@ h3 {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 16px;
+  margin-top: 14px;
 }
 
 .note {
-  margin-top: 12px;
   border-left: 4px solid var(--accent2);
 }
-
-.muted { color: var(--muted); }
-.center { text-align: center; }
 
 .grid-3 {
   display: grid;
@@ -179,20 +138,6 @@ h3 {
   gap: 14px;
   margin-top: 14px;
 }
-
-.two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-top: 14px;
-}
-
-.list {
-  margin: 0;
-  padding-left: 18px;
-  color: var(--muted);
-}
-.list li { margin: 6px 0; }
 
 .timer {
   display: flex;
@@ -214,7 +159,6 @@ h3 {
   font-size: 2rem;
   font-weight: 800;
   color: var(--text);
-  letter-spacing: 0.5px;
 }
 .timer small {
   color: var(--muted);
@@ -227,7 +171,6 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
   padding: 10px 14px;
   border-radius: 10px;
   border: 1px solid var(--border);
@@ -251,26 +194,20 @@ h3 {
 }
 .btn.ghost:hover { background: rgba(21,101,192,0.12); }
 
+.warning {
+  border: 1px solid rgba(255, 193, 7, 0.35);
+  background: rgba(255, 193, 7, 0.10);
+  border-radius: 10px;
+  padding: 12px;
+}
+
 .site-footer {
   border-top: 1px solid var(--border);
   padding: 22px 0;
   background: rgba(0,0,0,0.18);
 }
-.footer-inner {
-  display: grid;
-  gap: 8px;
-}
 
 @media (max-width: 900px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
-  }
-  .brand-logo { width: 140px; }
-}
-
-@media (max-width: 700px) {
-  .grid-3, .two-col {
-    grid-template-columns: 1fr;
-  }
+  .grid-3 { grid-template-columns: 1fr; }
   .nav { display: none; }
 }
