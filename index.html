@@ -3,103 +3,93 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="BSides Huntsville 2027 — a community-driven information security conference built by and for the local security, hacker, and maker community." />
-
+  <meta name="description" content="BSides Huntsville 2027 — a community-driven cybersecurity conference built by and for the local hacker, maker, and security community." />
   <title>BSides Huntsville 2027</title>
 
-  <link rel="icon" href="assets/images/bsides-huntsville-logo.png" />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="BSides Huntsville home">
-        <img class="brand-logo" src="assets/images/bsides-huntsville-logo.png" alt="BSides Huntsville logo" />
-      </a>
+      <div class="brand">
+        <h1>BSides Huntsville</h1>
+      </div>
 
-      <nav class="nav" aria-label="Primary">
+      <nav class="nav">
         <a href="#about">About</a>
         <a href="#countdown">Countdown</a>
         <a href="#cfp">CFP</a>
+        <a href="#register">Register</a>
         <a href="#villages">Villages</a>
-        <a href="#sponsors">Sponsors</a>
         <a href="#conduct">Code of Conduct</a>
       </nav>
 
       <div class="header-cta">
-        <a class="btn ghost" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener noreferrer">
+        <a class="btn ghost" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener">
           Submit to CFP
+        </a>
+        <a class="btn primary" href="https://www.eventbrite.com/e/bsides-huntsville-tickets-1980831909564" target="_blank" rel="noopener">
+          Register ($20)
         </a>
       </div>
     </div>
   </header>
 
-  <main id="main">
+  <main>
     <!-- HERO -->
-    <section class="hero" id="top">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <h1>BSides Huntsville 2027</h1>
-          <p class="subhead">
-            Nerdy. Community-built. BSides Huntsville is for hackers, makers, defenders, builders, students, and the curious.
-            Bring your ideas, bring your questions, and bring your weird — we’re here to learn together.
-          </p>
+    <section class="hero">
+      <div class="container">
+        <h2>BSides Huntsville 2027</h2>
+        <p class="subhead">
+          Nerdy. Community-built. BSides Huntsville is for hackers, makers, defenders, students, and the curious.
+          Bring your ideas, your questions, and your projects — we’re here to learn together.
+        </p>
 
-          <div class="hero-meta">
-            <div class="pill"><strong>Dates:</strong> April 16–17, 2027 (Fri–Sat)</div>
-            <div class="pill"><strong>Location:</strong> Huntsville, Alabama</div>
-          </div>
+        <p class="meta">
+          <strong>April 16–17, 2027 (Friday–Saturday)</strong><br />
+          Huntsville, Alabama
+        </p>
 
-          <div class="hero-actions">
-            <a class="btn primary" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener noreferrer">
-              Submit a Talk / Workshop (CFP)
-            </a>
-            <a class="btn" href="#about">Learn more</a>
-          </div>
-
-          <div class="hero-vibe panel">
-            <h3>By the community. For the community.</h3>
-            <p class="muted">
-              Everyone is welcome to submit a talk, workshop, village, or live demo. First-time speaker? Do it anyway.
-              If you’ve got something useful, interesting, weird, or hard-earned — we want it.
-            </p>
-          </div>
-
-          <div class="panel note">
-            <h3>Bring your Meshtastic nodes</h3>
-            <p class="muted">
-              We love hands-on, real-world nerdiness. If you’ve got Meshtastic gear, bring it — expect learning, experimenting,
-              and community collaboration around mesh networking.
-            </p>
-          </div>
+        <div class="hero-actions">
+          <a class="btn primary" href="https://www.eventbrite.com/e/bsides-huntsville-tickets-1980831909564" target="_blank">
+            Register on Eventbrite
+          </a>
+          <a class="btn" href="https://sessionize.com/bsides-huntsville/" target="_blank">
+            Submit a Talk or Workshop
+          </a>
         </div>
 
-        <div class="hero-art" aria-hidden="true">
-          <div class="hero-card">
-            <img src="assets/images/bsides-huntsville-logo.png" alt="" />
-          </div>
+        <div class="panel">
+          <h3>By the community. For the community.</h3>
+          <p>
+            Everyone is welcome to submit a talk, workshop, demo, or village.
+            First-time speaker? Do it anyway. If you have something useful, interesting,
+            or hard-earned to share — we want it.
+          </p>
+        </div>
+
+        <div class="panel note">
+          <h3>Bring your Meshtastic nodes</h3>
+          <p>
+            Expect hands-on learning and experimentation around mesh networking.
+            Bring your gear and your curiosity.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- COUNTDOWN -->
     <section id="countdown" class="section alt">
-      <div class="container">
+      <div class="container center">
         <h2 id="countdown-title">BSides Huntsville starts in</h2>
 
-        <div class="timer" aria-label="Countdown timer">
+        <div class="timer">
           <div><span id="days">0</span><small>Days</small></div>
           <div><span id="hours">0</span><small>Hours</small></div>
           <div><span id="minutes">0</span><small>Minutes</small></div>
           <div><span id="seconds">0</span><small>Seconds</small></div>
         </div>
-
-        <p class="muted center" style="margin-top: 14px;">
-          April 16–17, 2027 (Friday–Saturday) • Huntsville, Alabama
-        </p>
       </div>
     </section>
 
@@ -107,35 +97,18 @@
     <section id="about" class="section">
       <div class="container">
         <h2>About</h2>
-
         <p>
-          BSides Huntsville 2027 is a community-driven information security conference built by and for the local and regional
-          security, hacker, maker, and technology communities.
+          BSides Huntsville is a community-driven information security conference built by and
+          for the local and regional security, hacker, and maker communities.
         </p>
-
         <p>
-          BSides is about participation, not passive attendance. Participants are encouraged to share knowledge, ask questions,
-          build things, break things, and learn from one another in an inclusive, welcoming environment.
+          BSides is about participation, not passive attendance. Participants are encouraged
+          to share knowledge, ask questions, build things, break things, and learn from one another
+          in an inclusive and welcoming environment.
         </p>
-
-        <div class="grid-3">
-          <div class="panel">
-            <h3>Content</h3>
-            <p class="muted">Talks, workshops, demos, and hands-on sessions ranging from beginner-friendly to deeply technical.</p>
-          </div>
-          <div class="panel">
-            <h3>Conversation</h3>
-            <p class="muted">Meet local builders, defenders, researchers, and students — everyone is welcome.</p>
-          </div>
-          <div class="panel">
-            <h3>Community</h3>
-            <p class="muted">Strengthen the local security community through learning, networking, and shared projects.</p>
-          </div>
-        </div>
-
-        <p class="muted" style="margin-top: 14px;">
-          BSides Huntsville is an independent, community-organized event operating under the global BSides framework.
-          While sponsors support the event financially, they do not influence content, speaker selection, or conference operations.
+        <p class="muted">
+          BSides Huntsville is an independent event operating under the global BSides framework.
+          Sponsors support the community but do not influence content or speaker selection.
         </p>
       </div>
     </section>
@@ -144,123 +117,74 @@
     <section id="cfp" class="section alt">
       <div class="container">
         <h2>Call for Presenters (CFP)</h2>
-
         <p>
-          BSides Huntsville is <strong>community content</strong>. That means <strong>everyone is welcome</strong> to submit:
-          talks, workshops, hands-on labs, live demos, and village / interactive sessions.
+          We run a <strong>fair and open CFP</strong>. Talks, workshops, hands-on labs,
+          demos, and villages are all welcome.
+        </p>
+        <p>
+          No speaking slots are sold. Sponsors and non-sponsors submit through the same process
+          and are evaluated equally based on educational value.
         </p>
 
-        <p>
-          We run a <strong>fair and open CFP</strong>. Proposals are reviewed based on educational value, clarity, and relevance.
-          <strong>No speaking slots are sold</strong> — sponsors and non-sponsors use the same CFP process.
-        </p>
+        <a class="btn primary" href="https://sessionize.com/bsides-huntsville/" target="_blank">
+          Submit via Sessionize
+        </a>
 
         <p class="muted">
-          First-time speaker? We’ve got you. If you want feedback on your abstract or help shaping a workshop, the organizing team will help.
-        </p>
-
-        <div class="two-col">
-          <div class="panel">
-            <h3>Submit on Sessionize</h3>
-            <p class="muted">
-              All submissions go through Sessionize.
-            </p>
-            <a class="btn primary" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener noreferrer">
-              Open CFP Page
-            </a>
-          </div>
-
-          <div class="panel">
-            <h3>Topics we love</h3>
-            <ul class="list">
-              <li>Offensive and defensive security</li>
-              <li>Hardware hacking</li>
-              <li>RF and wireless</li>
-              <li>Meshtastic and mesh networking</li>
-              <li>Lockpicking and physical security</li>
-              <li>OSINT and privacy</li>
-              <li>Cloud, AppSec, blue team, red team</li>
-              <li>Community projects and research</li>
-            </ul>
-          </div>
-        </div>
-
-        <p class="muted" style="margin-top: 14px;">
-          BSides Huntsville is not a lead-generation event. Participant information is never sold or shared.
+          First-time speakers are strongly encouraged to submit.
         </p>
       </div>
     </section>
 
+    <!-- REGISTRATION -->
+    <section id="register" class="section">
+      <div class="container">
+        <h2>Registration</h2>
+
+        <div class="panel">
+          <p>
+            Registration is handled through Eventbrite.
+          </p>
+
+          <a class="btn primary" href="https://www.eventbrite.com/e/bsides-huntsville-tickets-1980831909564" target="_blank">
+            Open Registration
+          </a>
+
+          <h3 style="margin-top: 16px;">Early Registration Bonus</h3>
+          <p class="muted">
+            Participants who register on or before <strong>January 31, 2027</strong>
+            will receive a <strong>free electronic conference badge</strong>
+            (while supplies last), made by Huntsville’s own <strong>MakeItHackin</strong>.
+          </p>
+
+          <p class="muted">
+            Privacy note: participant information is never sold or shared with sponsors or third parties.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- VILLAGES -->
-    <section id="villages" class="section">
+    <section id="villages" class="section alt">
       <div class="container">
         <h2>Villages</h2>
-        <p>
-          BSides isn’t just talks — it’s hands-on. Come build, break, learn, and hang out.
-        </p>
 
-        <div class="grid-3">
+        <div class="grid">
           <div class="panel">
             <h3>Lockpicking Village</h3>
-            <p class="muted">
-              Learn the basics, level up your skills, and get hands-on with practice locks. Beginner-friendly and community-taught.
+            <p>
+              Learn the basics, level up your skills, and get hands-on with practice locks.
+              Beginner-friendly and community-taught.
             </p>
           </div>
 
           <div class="panel">
             <h3>Meshtastic Meetup</h3>
-            <p class="muted">
-              Bring your nodes and radios. Expect experiments, learning, troubleshooting, and nerdy mesh networking conversations.
+            <p>
+              Bring your nodes and radios. Expect experimentation, troubleshooting,
+              and nerdy mesh networking discussions.
             </p>
           </div>
-
-          <div class="panel">
-            <h3>Run a Village</h3>
-            <p class="muted">
-              Want to host an interactive area? Submit a village proposal through the CFP.
-            </p>
-            <a class="btn" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener noreferrer">
-              Submit a Village Proposal
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SPONSORS -->
-    <section id="sponsors" class="section alt">
-      <div class="container">
-        <h2>Sponsors</h2>
-
-        <p>
-          Sponsors help keep BSides accessible and community-driven. BSides Huntsville is <strong>not a lead-generation event</strong>.
-        </p>
-
-        <p>
-          Participant information is never sold or shared. Badge scanning, contact harvesting, or similar tracking mechanisms are not permitted.
-        </p>
-
-        <p>
-          Sponsorship represents a commitment to the local security community and supports learning, conversation, and hands-on activities.
-        </p>
-
-        <div class="panel note">
-          <h3>Early-Bird Electronic Badge</h3>
-          <p class="muted">
-            Participants who purchase registration before <strong>January 31, 2027</strong> will receive a limited-run electronic badge
-            (while supplies last).
-          </p>
-          <p class="muted">
-            Badge hardware is made by Huntsville’s own <strong>MakeItHackin</strong>.
-          </p>
-        </div>
-
-        <div class="panel">
-          <h3>Interested in sponsoring?</h3>
-          <p class="muted">
-            Sponsor prospectus details will be posted here. Sponsors are welcome to participate and network during the event.
-          </p>
-          <a class="btn" href="#contact">Contact the organizers</a>
         </div>
       </div>
     </section>
@@ -270,83 +194,57 @@
       <div class="container">
         <h2>Code of Conduct</h2>
         <p>
-          BSides Huntsville is committed to a safe, inclusive environment for all participants. Harassment, discrimination, and
-          abusive behavior are not tolerated.
+          BSides Huntsville is committed to providing a safe, inclusive, and respectful
+          environment for all participants. Harassment or discrimination of any kind
+          will not be tolerated.
         </p>
-
-        <div class="panel">
-          <h3>Be excellent to each other</h3>
-          <ul class="list">
-            <li>Respect boundaries and consent.</li>
-            <li>Help create an inclusive and welcoming environment.</li>
-            <li>Report concerns to organizers promptly.</li>
-          </ul>
-          <p class="muted">
-            Full Code of Conduct and reporting contacts will be posted before the event.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section alt">
-      <div class="container">
-        <h2>Contact</h2>
         <p class="muted">
-          Organizer contact info will be posted here. If you need to reach us in the meantime, use the official channels listed on the BSides chapter page.
+          Full Code of Conduct and reporting contacts will be published before the event.
         </p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
+    <div class="container center">
       <p class="muted">
-        BSides Huntsville operates in coordination with the BSides steering committee and follows the official BSides organizer guidelines.
+        BSides Huntsville operates in coordination with the BSides steering committee
+        and follows official BSides organizer guidelines.
       </p>
       <p class="muted">
-        © <span id="year"></span> BSides Huntsville • Built for the community.
+        © <span id="year"></span> BSides Huntsville
       </p>
     </div>
   </footer>
 
   <script>
-    // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Countdown: April 16–17, 2027 (CDT)
-    const startDate = new Date("2027-04-16T09:00:00-05:00"); // Fri morning CDT
-    const endDate   = new Date("2027-04-17T18:00:00-05:00"); // Sat evening CDT
+    const startDate = new Date("2027-04-16T09:00:00-05:00");
+    const endDate   = new Date("2027-04-17T18:00:00-05:00");
 
     function updateCountdown() {
       const now = new Date();
-      let diff;
       const title = document.getElementById("countdown-title");
       const timer = document.querySelector(".timer");
 
+      let diff;
       if (now < startDate) {
         diff = startDate - now;
         title.textContent = "BSides Huntsville starts in";
-        timer.style.display = "flex";
-      } else if (now >= startDate && now <= endDate) {
+      } else if (now <= endDate) {
         diff = endDate - now;
         title.textContent = "BSides Huntsville is live! Ends in";
-        timer.style.display = "flex";
       } else {
         title.textContent = "BSides Huntsville 2027 has concluded";
         timer.style.display = "none";
         return;
       }
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours;
-      document.getElementById("minutes").textContent = minutes;
-      document.getElementById("seconds").textContent = seconds;
+      document.getElementById("days").textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.getElementById("hours").textContent = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      document.getElementById("minutes").textContent = Math.floor((diff / (1000 * 60)) % 60);
+      document.getElementById("seconds").textContent = Math.floor((diff / 1000) % 60);
     }
 
     updateCountdown();
