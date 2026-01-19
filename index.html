@@ -46,7 +46,7 @@
       <div class="container hero-inner">
 
         <div class="hero-visual">
-          <canvas id="rocketTrail" class="rocket-trail" aria-hidden="true"></canvas>
+          <!-- canvas id="rocketTrail" class="rocket-trail" aria-hidden="true"></canvas -->
 
           <img
             id="heroLogo"
@@ -295,7 +295,7 @@
     });
 
     // ===== Slow Binary Rain Behind Rocket =====
-    const canvas = document.getElementById("rocketTrail");
+    /*const canvas = document.getElementById("rocketTrail");
     const ctx = canvas.getContext("2d");
     const logo = document.getElementById("heroLogo");
 
@@ -306,7 +306,7 @@
       canvas.width = Math.floor(w * dpr);
       canvas.height = Math.floor(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
+    
 
     // “exhaust region” wedge
     let trail = { x0: 0, y0: 0, x1: 0, yTop: 0, yBot: 0 };
@@ -421,7 +421,7 @@
       computeTrailRegion();
     });
 
-    startRain();
+    startRain();*/
   </script>
 </body>
 </html>
