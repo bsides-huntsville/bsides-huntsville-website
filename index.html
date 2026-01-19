@@ -6,11 +6,68 @@
   <meta name="description" content="BSides Huntsville 2027 — a community-driven cybersecurity conference built by and for the community." />
   <title>BSides Huntsville 2027</title>
 
-  <!-- Cloudflare Fonts (fast + privacy-friendly) -->
+  <!-- Cloudflare Fonts -->
   <link rel="preconnect" href="https://fonts.cloudflare.com" crossorigin />
   <link href="https://fonts.cloudflare.com/css?family=Inter:400,500,600,700,800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/styles.css" />
+
+  <style>
+    /* HERO stays the same, we just add a canvas layer behind the logo */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at top, #020617, #000);
+    }
+
+    /* Canvas that draws the rocket trail */
+    #rocketTrail {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    /* Keep content above the canvas */
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Make logo pop */
+    .hero-logo {
+      display: block;
+      margin: 0 auto 1.5rem;
+      max-width: 820px; /* matches your logo's wide shape */
+      width: 100%;
+      height: auto;
+      filter:
+        drop-shadow(0 0 10px rgba(141,255,149,0.35))
+        drop-shadow(0 0 22px rgba(220,38,38,0.28))
+        drop-shadow(0 14px 44px rgba(0,0,0,0.70));
+    }
+
+    /* Optional: helps the trail look like it sits "behind" the rocket */
+    .logo-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .logo-wrap::after {
+      /* subtle vignette behind logo for depth */
+      content: "";
+      position: absolute;
+      inset: -18px -18px -18px -18px;
+      background: radial-gradient(circle at 60% 40%,
+        rgba(0,255,200,0.10),
+        rgba(255,40,40,0.06),
+        rgba(0,0,0,0.0) 70%);
+      filter: blur(2px);
+      z-index: -1;
+      pointer-events: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -40,13 +97,18 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero">
+      <canvas id="rocketTrail"></canvas>
+
       <div class="container hero-inner">
-        <img
-          src="assets/images/bsides-huntsville-logo-lite.jpg"
-          alt="BSides Huntsville logo"
-          class="hero-logo"
-          loading="eager"
-        />
+        <div class="logo-wrap">
+          <img
+            id="heroLogo"
+            src="assets/images/bsides-huntsville-logo.png"
+            alt="BSides Huntsville logo"
+            class="hero-logo"
+            loading="eager"
+          />
+        </div>
 
         <h1>BSides Huntsville 2027</h1>
 
@@ -249,6 +311,158 @@
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    // ===== ROCKET BINARY TRAIL (green + red 1s/0s) =====
+    const canvas = document.getElementById("rocketTrail");
+    const ctx = canvas.getContext("2d");
+    const logo = document.getElementById("heroLogo");
+
+    function fitCanvas() {
+      canvas.width = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
+    }
+    fitCanvas();
+    window.addEventListener("resize", () => {
+      fitCanvas();
+      computeTrailRegion();
+    });
+
+    // We approximate the rocket "exhaust origin" to the right side of the logo.
+    // This makes the trail look like it's behind the rocket even though it's an image.
+    let trail = { x0: 0, y0: 0, x1: 0, yTop: 0, yBot: 0 };
+
+    function computeTrailRegion() {
+      const cRect = canvas.getBoundingClientRect();
+      const lRect = logo.getBoundingClientRect();
+
+      // Position logo center relative to canvas
+      const logoLeft = lRect.left - cRect.left;
+      const logoTop  = lRect.top  - cRect.top;
+      const logoW = lRect.width;
+      const logoH = lRect.height;
+
+      // "Exhaust origin" near the rocket engines area (right side, upper-ish)
+      trail.x0 = logoLeft + logoW * 0.78;
+      trail.y0 = logoTop  + logoH * 0.30;
+
+      // Trail extends to the right edge of the hero
+      trail.x1 = canvas.width + 40;
+
+      // Wedge thickness grows as it goes right
+      trail.yTop = trail.y0 - logoH * 0.10;
+      trail.yBot = trail.y0 + logoH * 0.35;
+    }
+
+    function waitForLogoLayout() {
+      if (!logo.complete) return false;
+      computeTrailRegion();
+      return true;
+    }
+
+    // “Particles” = drifting 0/1 glyphs
+    const glyphs = [];
+    const CHARS = ["0", "1"];
+    const MAX = 220;
+
+    function spawnGlyph() {
+      const t = Math.random();
+      const isRed = t > 0.82; // mostly green, occasional red sparks
+      return {
+        x: trail.x0 + Math.random() * 30,
+        y: trail.y0 + (Math.random() - 0.3) * 80,
+        vx: 1.6 + Math.random() * 3.2,
+        vy: (Math.random() - 0.5) * 0.8,
+        a: 0.35 + Math.random() * 0.55,
+        s: 12 + Math.random() * 10,
+        c: isRed ? "rgba(220,38,38," : "rgba(141,255,149,",
+        ch: CHARS[(Math.random() * 2) | 0],
+        life: 0,
+        maxLife: 120 + Math.random() * 80
+      };
+    }
+
+    function inWedge(x, y) {
+      // wedge expands from x0 to x1; map x -> width factor
+      const t = Math.max(0, Math.min(1, (x - trail.x0) / (trail.x1 - trail.x0)));
+      const top = trail.yTop - t * 18;
+      const bot = trail.yBot + t * 28;
+      return x >= trail.x0 && y >= top && y <= bot;
+    }
+
+    function draw() {
+      // fade frame
+      ctx.fillStyle = "rgba(0,0,0,0.10)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // soft fade-out mask so the trail dissipates to the right
+      const g = ctx.createLinearGradient(trail.x0, 0, trail.x1, 0);
+      g.addColorStop(0.0, "rgba(0,0,0,0)");
+      g.addColorStop(0.55, "rgba(0,0,0,0)");
+      g.addColorStop(1.0, "rgba(0,0,0,0.55)");
+
+      // spawn
+      if (glyphs.length < MAX) {
+        for (let i = 0; i < 4; i++) glyphs.push(spawnGlyph());
+      }
+
+      // draw glyphs
+      ctx.save();
+      ctx.font = "700 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace";
+      ctx.textBaseline = "middle";
+
+      for (let i = glyphs.length - 1; i >= 0; i--) {
+        const p = glyphs[i];
+        p.life += 1;
+
+        p.x += p.vx;
+        p.y += p.vy + Math.sin((p.x + p.life) * 0.02) * 0.18;
+
+        // fade as it travels
+        const travelT = Math.max(0, Math.min(1, (p.x - trail.x0) / (trail.x1 - trail.x0)));
+        const alpha = p.a * (1 - travelT) * (1 - (p.life / p.maxLife));
+
+        // drop if dead or out of wedge
+        if (p.life > p.maxLife || p.x > trail.x1 || !inWedge(p.x, p.y) || alpha <= 0.01) {
+          glyphs.splice(i, 1);
+          continue;
+        }
+
+        // glow
+        ctx.shadowBlur = 14;
+        ctx.shadowColor = p.c + "0.9)";
+        ctx.fillStyle = p.c + alpha.toFixed(3) + ")";
+
+        ctx.font = `700 ${p.s}px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace`;
+        ctx.fillText(p.ch, p.x, p.y);
+      }
+
+      ctx.restore();
+
+      // apply fade gradient mask at the far right
+      ctx.fillStyle = g;
+      ctx.fillRect(trail.x0, 0, canvas.width - trail.x0, canvas.height);
+
+      requestAnimationFrame(draw);
+    }
+
+    // Start after layout is ready
+    (function start() {
+      const ok = waitForLogoLayout();
+      if (!ok) {
+        requestAnimationFrame(start);
+        return;
+      }
+      // keep the canvas crisp on high-DPI
+      const dpr = window.devicePixelRatio || 1;
+      const cssW = canvas.clientWidth;
+      const cssH = canvas.clientHeight;
+      canvas.width = Math.floor(cssW * dpr);
+      canvas.height = Math.floor(cssH * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      computeTrailRegion();
+      draw();
+    })();
   </script>
 </body>
 </html>
