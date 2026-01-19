@@ -45,9 +45,7 @@
     <section class="hero">
       <div class="container hero-inner">
 
-        <!-- Wrapper so canvas can sit behind the logo -->
         <div class="hero-visual">
-          <!-- Canvas for trailing 1s/0s behind the rocket -->
           <canvas id="rocketTrail" class="rocket-trail" aria-hidden="true"></canvas>
 
           <img
@@ -261,7 +259,7 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // ===== Boot Screen (terminal-style) =====
+    // ===== Boot Screen =====
     const bootMessages = [
       "BSides Huntsville BIOS v0.27",
       "[ OK ] Initializing community modules...",
@@ -283,7 +281,7 @@
         line.textContent = bootMessages[bootIndex];
         bootScreen.appendChild(line);
         bootIndex++;
-        setTimeout(typeBootMessage, 220);
+        setTimeout(typeBootMessage, 240);
       } else {
         setTimeout(() => {
           bootScreen.classList.add("boot-hide");
@@ -296,13 +294,12 @@
       typeBootMessage();
     });
 
-    // ===== ROCKET BINARY TRAIL (green + red 1s/0s) =====
+    // ===== Slow Binary Rain Behind Rocket =====
     const canvas = document.getElementById("rocketTrail");
     const ctx = canvas.getContext("2d");
     const logo = document.getElementById("heroLogo");
 
     function fitCanvas() {
-      // canvas is absolutely positioned; match its CSS pixel size
       const w = canvas.clientWidth;
       const h = canvas.clientHeight;
       const dpr = window.devicePixelRatio || 1;
@@ -311,7 +308,7 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    // Approximate rocket exhaust origin relative to the logo’s box
+    // “exhaust region” wedge
     let trail = { x0: 0, y0: 0, x1: 0, yTop: 0, yBot: 0 };
 
     function computeTrailRegion() {
@@ -323,101 +320,100 @@
       const logoW = lRect.width;
       const logoH = lRect.height;
 
-      // You can tweak these numbers for "exact" rocket engine position:
+      // tweakable exhaust origin
       trail.x0 = logoLeft + logoW * 0.70;
       trail.y0 = logoTop  + logoH * 0.26;
-
       trail.x1 = canvas.clientWidth + 40;
 
       trail.yTop = trail.y0 - logoH * 0.10;
       trail.yBot = trail.y0 + logoH * 0.38;
     }
 
-    function inWedge(x, y) {
+    function wedgeBoundsAtX(x) {
       const t = Math.max(0, Math.min(1, (x - trail.x0) / (trail.x1 - trail.x0)));
-      const top = trail.yTop - t * 18;
-      const bot = trail.yBot + t * 32;
-      return x >= trail.x0 && y >= top && y <= bot;
+      const top = trail.yTop - t * 12;
+      const bot = trail.yBot + t * 26;
+      return { top, bot, t };
     }
 
-    const glyphs = [];
-    const CHARS = ["0","1"];
-    const MAX = 220;
+    const drops = [];
+    const MAX = 260;
 
-    function spawnGlyph() {
-      const isRed = Math.random() > 0.82; // mostly green, occasional red sparks
+    function spawnDrop() {
+      const x = trail.x0 + Math.random() * (canvas.clientWidth - trail.x0);
+      const { top, bot, t } = wedgeBoundsAtX(x);
+
+      // start slightly above the wedge (so it “rains in”)
+      const y = top - 10 - Math.random() * 50;
+
+      const isRed = Math.random() > 0.82;
       return {
-        x: trail.x0 + Math.random() * 24,
-        y: trail.y0 + (Math.random() - 0.25) * 90,
-        vx: 1.8 + Math.random() * 3.5,
-        vy: (Math.random() - 0.5) * 0.9,
-        a: 0.35 + Math.random() * 0.55,
+        x,
+        y,
+        vy: 0.18 + Math.random() * 0.55,   // ✅ SLOW FALL SPEED
+        vx: (Math.random() - 0.5) * 0.12,  // subtle drift
+        a: 0.20 + Math.random() * 0.55,
         s: 12 + Math.random() * 10,
         c: isRed ? "rgba(220,38,38," : "rgba(141,255,149,",
-        ch: CHARS[(Math.random() * 2) | 0],
+        ch: Math.random() > 0.5 ? "1" : "0",
         life: 0,
-        maxLife: 120 + Math.random() * 80
+        maxLife: 420 + Math.random() * 260  // longer life so it feels slower
       };
     }
 
-    function drawTrail() {
-      // fade frame (transparent-ish so it feels like motion blur)
-      ctx.fillStyle = "rgba(0,0,0,0.10)";
+    function drawRain() {
+      // fade gently (lower alpha = longer trails)
+      ctx.fillStyle = "rgba(0,0,0,0.07)";
       ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 
-      // spawn
-      if (glyphs.length < MAX) {
-        for (let i = 0; i < 4; i++) glyphs.push(spawnGlyph());
+      // spawn a few per frame
+      if (drops.length < MAX) {
+        const spawnCount = 2; // fewer spawns = calmer rain
+        for (let i = 0; i < spawnCount; i++) drops.push(spawnDrop());
       }
 
       ctx.save();
       ctx.textBaseline = "middle";
 
-      for (let i = glyphs.length - 1; i >= 0; i--) {
-        const p = glyphs[i];
+      for (let i = drops.length - 1; i >= 0; i--) {
+        const p = drops[i];
         p.life += 1;
 
+        p.y += p.vy;
         p.x += p.vx;
-        p.y += p.vy + Math.sin((p.x + p.life) * 0.02) * 0.22;
 
-        const travelT = Math.max(0, Math.min(1, (p.x - trail.x0) / (trail.x1 - trail.x0)));
-        const alpha = p.a * (1 - travelT) * (1 - (p.life / p.maxLife));
+        const { top, bot, t } = wedgeBoundsAtX(p.x);
 
-        if (p.life > p.maxLife || p.x > trail.x1 || !inWedge(p.x, p.y) || alpha <= 0.01) {
-          glyphs.splice(i, 1);
+        // fade out as it goes farther right + with age
+        const alpha = p.a * (1 - t * 0.85) * (1 - (p.life / p.maxLife));
+
+        if (p.life > p.maxLife || p.y > bot + 60 || p.x < trail.x0 || alpha <= 0.01 || p.y < top - 120) {
+          drops.splice(i, 1);
           continue;
         }
 
-        ctx.shadowBlur = 14;
-        ctx.shadowColor = p.c + "0.9)";
-        ctx.fillStyle = p.c + alpha.toFixed(3) + ")";
-        ctx.font = `800 ${p.s}px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace`;
-
-        ctx.fillText(p.ch, p.x, p.y);
+        // only draw if inside wedge
+        if (p.y >= top && p.y <= bot) {
+          ctx.shadowBlur = 14;
+          ctx.shadowColor = p.c + "0.85)";
+          ctx.fillStyle = p.c + alpha.toFixed(3) + ")";
+          ctx.font = `800 ${p.s}px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace`;
+          ctx.fillText(p.ch, p.x, p.y);
+        }
       }
 
       ctx.restore();
-
-      // Fade-out toward the right so it dissipates
-      const g = ctx.createLinearGradient(trail.x0, 0, trail.x1, 0);
-      g.addColorStop(0.0, "rgba(0,0,0,0)");
-      g.addColorStop(0.7, "rgba(0,0,0,0.0)");
-      g.addColorStop(1.0, "rgba(0,0,0,0.65)");
-      ctx.fillStyle = g;
-      ctx.fillRect(trail.x0, 0, canvas.clientWidth - trail.x0, canvas.clientHeight);
-
-      requestAnimationFrame(drawTrail);
+      requestAnimationFrame(drawRain);
     }
 
-    function startTrail() {
-      // wait until logo is loaded so measurements work
+    function startRain() {
       if (!logo.complete) {
-        requestAnimationFrame(startTrail);
+        requestAnimationFrame(startRain);
         return;
       }
       fitCanvas();
       computeTrailRegion();
-      drawTrail();
+      drawRain();
     }
 
     window.addEventListener("resize", () => {
@@ -425,7 +421,7 @@
       computeTrailRegion();
     });
 
-    startTrail();
+    startRain();
   </script>
 </body>
 </html>

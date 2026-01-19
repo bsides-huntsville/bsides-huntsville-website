@@ -166,14 +166,18 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
 }
 .hero-inner{ text-align:center; }
 
-/* Wrapper so we can layer canvas behind the image */
+/* Wrapper for logo + canvas: NO border/frame */
 .hero-visual{
   position: relative;
-  width: min(760px, 96%);
+  width: min(860px, 96%);
   margin: 0 auto 18px;
+  overflow: visible; /* prevents “boxed” clipping look */
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
-/* The canvas sits behind the logo, aligned to same box */
+/* Canvas sits behind logo */
 .rocket-trail{
   position: absolute;
   inset: 0;
@@ -181,14 +185,13 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
   height: 100%;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.95;
+  opacity: 0.90;
 }
 
-/* Make the logo POP on dark background */
+/* Logo glow */
 .hero-logo{
   position: relative;
   z-index: 1;
-
   width: 100%;
   height: auto;
   display:block;
@@ -198,8 +201,6 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
     drop-shadow(0 10px 28px rgba(0,0,0,.55))
     drop-shadow(0 0 14px rgba(141,255,149,.20))
     drop-shadow(0 0 26px rgba(220,38,38,.22));
-
-  image-rendering: auto;
 }
 
 .subtitle{
