@@ -6,10 +6,10 @@
   --muted:#a3aab6;
   --border: rgba(255,255,255,.10);
   --section-edge: rgba(255,255,255,.08);
-  --section-a: linear-gradient(180deg, rgba(12,18,28,.95), rgba(7,11,18,.92));
-  --section-b: linear-gradient(180deg, rgba(10,15,24,.96), rgba(6,9,14,.96));
-  --section-glow-red: radial-gradient(620px 240px at 16% -10%, rgba(220,38,38,.16), transparent 70%);
-  --section-glow-blue: radial-gradient(620px 240px at 84% -10%, rgba(59,130,246,.18), transparent 70%);
+  --section-a: linear-gradient(180deg, rgba(9,14,22,.98), rgba(6,9,14,.96));
+  --section-b: linear-gradient(180deg, rgba(12,16,24,.98), rgba(7,10,16,.96));
+  --section-soft-top: linear-gradient(180deg, rgba(255,255,255,.03), transparent 22%);
+  --section-soft-bottom: linear-gradient(0deg, rgba(0,0,0,.18), transparent 28%);
   --shadow: 0 14px 40px rgba(0,0,0,.35);
   --accent: rgba(220,38,38,.55);
   --noticeBg: rgba(234,179,8,.10);
@@ -22,9 +22,11 @@ html,body{ height:100%; }
 body{
   margin:0;
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: radial-gradient(1200px 600px at 20% -10%, rgba(59,130,246,.18), transparent 55%),
-              radial-gradient(900px 480px at 80% 0%, rgba(220,38,38,.18), transparent 55%),
-              linear-gradient(180deg, var(--bg), var(--bg2));
+  background:
+    radial-gradient(1000px 520px at 10% -10%, rgba(59,130,246,.16), transparent 60%),
+    radial-gradient(900px 460px at 90% -6%, rgba(220,38,38,.16), transparent 60%),
+    radial-gradient(900px 420px at 50% 120%, rgba(14,165,233,.10), transparent 70%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
   color: var(--text);
 }
 
@@ -150,12 +152,18 @@ a:hover{ opacity:.95; }
 /* Sections */
 .section{
   padding: 72px 0;
-  background: var(--section-glow-blue), var(--section-a);
+  background:
+    var(--section-soft-top),
+    var(--section-soft-bottom),
+    var(--section-a);
   border-top: 1px solid var(--section-edge);
   border-bottom: 1px solid var(--section-edge);
 }
 .section.alt{
-  background: var(--section-glow-red), var(--section-b);
+  background:
+    var(--section-soft-top),
+    var(--section-soft-bottom),
+    var(--section-b);
 }
 
 h1,h2,h3{ margin: 0 0 12px; }
@@ -344,13 +352,14 @@ code{
   .section{
     padding: 56px 0;
     background:
-      radial-gradient(420px 200px at 50% -60px, rgba(59,130,246,.16), transparent 72%),
+      linear-gradient(180deg, rgba(255,255,255,.03), transparent 24%),
+      linear-gradient(0deg, rgba(0,0,0,.18), transparent 30%),
       var(--section-a);
   }
   .section.alt{
     background:
-      radial-gradient(420px 200px at 50% -60px, rgba(220,38,38,.16), transparent 72%),
+      linear-gradient(180deg, rgba(255,255,255,.03), transparent 24%),
+      linear-gradient(0deg, rgba(0,0,0,.18), transparent 30%),
       var(--section-b);
   }
 }
-
