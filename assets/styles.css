@@ -17,10 +17,9 @@ html,body{ height:100%; }
 body{
   margin:0;
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background:
-    radial-gradient(1200px 600px at 20% -10%, rgba(59,130,246,.18), transparent 55%),
-    radial-gradient(900px 480px at 80% 0%, rgba(220,38,38,.18), transparent 55%),
-    linear-gradient(180deg, var(--bg), var(--bg2));
+  background: radial-gradient(1200px 600px at 20% -10%, rgba(59,130,246,.18), transparent 55%),
+              radial-gradient(900px 480px at 80% 0%, rgba(220,38,38,.18), transparent 55%),
+              linear-gradient(180deg, var(--bg), var(--bg2));
   color: var(--text);
 }
 
@@ -33,6 +32,27 @@ a:hover{ opacity:.95; }
 }
 
 .center{ text-align:center; }
+
+/* Boot / Loading Screen */
+.boot-screen{
+  position: fixed;
+  inset: 0;
+  background: #000;
+  color: #8dff95;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+  font-size: 14px;
+  padding: 24px;
+  z-index: 9999;
+  overflow: auto;
+  opacity: 1;
+  transition: opacity .6s ease, transform .6s ease;
+  text-shadow: 0 0 10px rgba(141,255,149,.25);
+}
+.boot-screen.boot-hide{
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+}
 
 /* Skip link */
 .skip-link{
@@ -139,66 +159,49 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
 .muted{ color: var(--muted); }
 .small{ font-size: 13px; }
 
-/* =========================
-   HERO + BINARY ROCKET TRAIL
-   ========================= */
-
+/* Hero */
 .hero{
-  position: relative;
-  overflow: hidden;
   padding: 78px 0 54px;
   border-bottom: 1px solid var(--border);
 }
+.hero-inner{ text-align:center; }
 
-.hero-inner{
+/* Wrapper so we can layer canvas behind the image */
+.hero-visual{
   position: relative;
-  text-align:center;
-  z-index: 2;
+  width: min(760px, 96%);
+  margin: 0 auto 18px;
 }
 
-/* Canvas behind logo */
-#rocketTrail{
+/* The canvas sits behind the logo, aligned to same box */
+.rocket-trail{
   position: absolute;
   inset: 0;
-  z-index: 1;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
   pointer-events: none;
-  opacity: 0.9;
-}
-
-/* Logo wrapper for extra depth */
-.logo-wrap{
-  position: relative;
-  display: inline-block;
-}
-
-/* Glow halo behind logo */
-.logo-wrap::after{
-  content:"";
-  position:absolute;
-  inset:-18px;
-  background:
-    radial-gradient(circle at 60% 40%,
-      rgba(0,255,200,0.12),
-      rgba(255,40,40,0.08),
-      rgba(0,0,0,0) 70%);
-  filter: blur(3px);
-  z-index:-1;
-  pointer-events:none;
+  opacity: 0.95;
 }
 
 /* Make the logo POP on dark background */
 .hero-logo{
-  width: min(560px, 92%);
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
   height: auto;
   display:block;
-  margin: 0 auto 18px;
+  margin: 0 auto;
+
   filter:
     drop-shadow(0 10px 28px rgba(0,0,0,.55))
-    drop-shadow(0 0 14px rgba(34,211,238,.28))
+    drop-shadow(0 0 14px rgba(141,255,149,.20))
     drop-shadow(0 0 26px rgba(220,38,38,.22));
+
+  image-rendering: auto;
 }
 
-/* Hero text */
 .subtitle{
   margin: 0 auto 14px;
   max-width: 72ch;
@@ -208,7 +211,6 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
   margin: 0 auto 18px;
   color: rgba(229,231,235,.65);
 }
-
 .hero-actions{
   display:flex;
   justify-content:center;
@@ -216,7 +218,6 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
   flex-wrap:wrap;
   margin: 18px 0 16px;
 }
-
 .hero-note{
   display:flex;
   gap:10px;
@@ -224,7 +225,6 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
   justify-content:center;
   margin-top: 12px;
 }
-
 .pill{
   border: 1px solid var(--border);
   background: rgba(15,23,42,.45);
@@ -297,7 +297,7 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
 /* Notice box */
 .notice{
   margin-top: 14px;
-  padding: 12px;
+  padding: 12px 12px;
   border-radius: 12px;
   background: var(--noticeBg);
   border: 1px solid var(--noticeBorder);
@@ -306,9 +306,8 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
   font-weight: 900;
   margin-bottom: 6px;
 }
-
 code{
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 0.95em;
   padding: 2px 6px;
   border-radius: 8px;
