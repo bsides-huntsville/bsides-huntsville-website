@@ -46,6 +46,8 @@
       <div class="container hero-inner">
 
         <div class="hero-visual">
+          <!-- canvas id="rocketTrail" class="rocket-trail" aria-hidden="true"></canvas -->
+
           <img
             id="heroLogo"
             src="assets/images/bsides-huntsville-logo.png"
@@ -159,8 +161,9 @@
           </a>
 
           <div class="notice">
-            <div class="notice-title">
-              Test Access Password: <code>BSidesRocketCity</code>
+            <div class="notice-title">Test Access Password: <code>BSidesRocketCity</code></div>
+            <div class="muted small">
+              Note: Temp Password for eventbrite event.
             </div>
           </div>
 
@@ -220,7 +223,205 @@
   </main>
 
   <script>
+    // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Countdown
+    const startDate = new Date("2027-04-16T09:00:00-05:00");
+    const endDate   = new Date("2027-04-17T18:00:00-05:00");
+
+    function updateCountdown() {
+      const now = new Date();
+      const title = document.getElementById("countdown-title");
+      const timer = document.querySelector(".timer");
+
+      let diff;
+      if (now < startDate) {
+        diff = startDate - now;
+        title.textContent = "BSides Huntsville starts in";
+        timer.style.display = "";
+      } else if (now <= endDate) {
+        diff = endDate - now;
+        title.textContent = "BSides Huntsville is live! Ends in";
+        timer.style.display = "";
+      } else {
+        title.textContent = "BSides Huntsville 2027 has concluded";
+        timer.style.display = "none";
+        return;
+      }
+
+      document.getElementById("days").textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.getElementById("hours").textContent = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      document.getElementById("minutes").textContent = Math.floor((diff / (1000 * 60)) % 60);
+      document.getElementById("seconds").textContent = Math.floor((diff / 1000) % 60);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // ===== Boot Screen =====
+    const bootMessages = [
+      "BSides Huntsville BIOS v0.27",
+      "[ OK ] Initializing community modules...",
+      "[ OK ] Loading CFP pipeline...",
+      "[ OK ] Mounting /srv/bsides-hsv ...",
+      "[ OK ] Spawning villages: lockpicking, meshtastic ...",
+      "[ OK ] Verifying privacy policy: no attendee list sales",
+      "[ OK ] Starting web services...",
+      "Welcome to BSides Huntsville."
+    ];
+
+    const bootScreen = document.getElementById("bootScreen");
+    let bootIndex = 0;
+
+    function typeBootMessage() {
+      if (!bootScreen) return;
+      if (bootIndex < bootMessages.length) {
+        const line = document.createElement("div");
+        line.textContent = bootMessages[bootIndex];
+        bootScreen.appendChild(line);
+        bootIndex++;
+        setTimeout(typeBootMessage, 240);
+      } else {
+        setTimeout(() => {
+          bootScreen.classList.add("boot-hide");
+          setTimeout(() => bootScreen.remove(), 650);
+        }, 700);
+      }
+    }
+
+    window.addEventListener("load", () => {
+      typeBootMessage();
+    });
+
+    // ===== Slow Binary Rain Behind Rocket =====
+    /*const canvas = document.getElementById("rocketTrail");
+    const ctx = canvas.getContext("2d");
+    const logo = document.getElementById("heroLogo");
+
+    function fitCanvas() {
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    
+
+    // “exhaust region” wedge
+    let trail = { x0: 0, y0: 0, x1: 0, yTop: 0, yBot: 0 };
+
+    function computeTrailRegion() {
+      const cRect = canvas.getBoundingClientRect();
+      const lRect = logo.getBoundingClientRect();
+
+      const logoLeft = lRect.left - cRect.left;
+      const logoTop  = lRect.top  - cRect.top;
+      const logoW = lRect.width;
+      const logoH = lRect.height;
+
+      // tweakable exhaust origin
+      trail.x0 = logoLeft + logoW * 0.70;
+      trail.y0 = logoTop  + logoH * 0.26;
+      trail.x1 = canvas.clientWidth + 40;
+
+      trail.yTop = trail.y0 - logoH * 0.10;
+      trail.yBot = trail.y0 + logoH * 0.38;
+    }
+
+    function wedgeBoundsAtX(x) {
+      const t = Math.max(0, Math.min(1, (x - trail.x0) / (trail.x1 - trail.x0)));
+      const top = trail.yTop - t * 12;
+      const bot = trail.yBot + t * 26;
+      return { top, bot, t };
+    }
+
+    const drops = [];
+    const MAX = 260;
+
+    function spawnDrop() {
+      const x = trail.x0 + Math.random() * (canvas.clientWidth - trail.x0);
+      const { top, bot, t } = wedgeBoundsAtX(x);
+
+      // start slightly above the wedge (so it “rains in”)
+      const y = top - 10 - Math.random() * 50;
+
+      const isRed = Math.random() > 0.82;
+      return {
+        x,
+        y,
+        vy: 0.18 + Math.random() * 0.55,   // ✅ SLOW FALL SPEED
+        vx: (Math.random() - 0.5) * 0.12,  // subtle drift
+        a: 0.20 + Math.random() * 0.55,
+        s: 12 + Math.random() * 10,
+        c: isRed ? "rgba(220,38,38," : "rgba(141,255,149,",
+        ch: Math.random() > 0.5 ? "1" : "0",
+        life: 0,
+        maxLife: 420 + Math.random() * 260  // longer life so it feels slower
+      };
+    }
+
+    function drawRain() {
+      // fade gently (lower alpha = longer trails)
+      ctx.fillStyle = "rgba(0,0,0,0.07)";
+      ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+
+      // spawn a few per frame
+      if (drops.length < MAX) {
+        const spawnCount = 2; // fewer spawns = calmer rain
+        for (let i = 0; i < spawnCount; i++) drops.push(spawnDrop());
+      }
+
+      ctx.save();
+      ctx.textBaseline = "middle";
+
+      for (let i = drops.length - 1; i >= 0; i--) {
+        const p = drops[i];
+        p.life += 1;
+
+        p.y += p.vy;
+        p.x += p.vx;
+
+        const { top, bot, t } = wedgeBoundsAtX(p.x);
+
+        // fade out as it goes farther right + with age
+        const alpha = p.a * (1 - t * 0.85) * (1 - (p.life / p.maxLife));
+
+        if (p.life > p.maxLife || p.y > bot + 60 || p.x < trail.x0 || alpha <= 0.01 || p.y < top - 120) {
+          drops.splice(i, 1);
+          continue;
+        }
+
+        // only draw if inside wedge
+        if (p.y >= top && p.y <= bot) {
+          ctx.shadowBlur = 14;
+          ctx.shadowColor = p.c + "0.85)";
+          ctx.fillStyle = p.c + alpha.toFixed(3) + ")";
+          ctx.font = `800 ${p.s}px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace`;
+          ctx.fillText(p.ch, p.x, p.y);
+        }
+      }
+
+      ctx.restore();
+      requestAnimationFrame(drawRain);
+    }
+
+    function startRain() {
+      if (!logo.complete) {
+        requestAnimationFrame(startRain);
+        return;
+      }
+      fitCanvas();
+      computeTrailRegion();
+      drawRain();
+    }
+
+    window.addEventListener("resize", () => {
+      fitCanvas();
+      computeTrailRegion();
+    });
+
+    startRain();*/
   </script>
 </body>
 </html>
