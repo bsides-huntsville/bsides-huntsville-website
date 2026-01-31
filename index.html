@@ -2,26 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="BSides Rocket City — community-driven cybersecurity conference in Huntsville, Alabama." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>BSides Rocket City</title>
+  <meta name="description" content="BSides Rocket City — community-driven cybersecurity conference in Huntsville, Alabama." />
 
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 
 <body>
 
-  <!-- ===== TOP BANNER ===== -->
+  <!-- ================= TERMINAL BOOT SCREEN ================= -->
+  <div id="bootScreen" class="boot-screen"></div>
+
+  <!-- ================= HACKER BANNER ================= -->
   <div class="top-banner">
-    🚀 More info coming soon
+    &gt; More info coming soon _
   </div>
 
+  <!-- ================= HEADER ================= -->
   <header class="site-header">
     <div class="container header-inner">
 
-      <div class="brand">
-        <span class="brand-name">BSides Rocket City</span>
-      </div>
+      <div class="brand-name">BSides Rocket City</div>
 
       <nav class="nav">
         <a href="#about">About</a>
@@ -30,109 +33,126 @@
         <a href="#villages">Villages</a>
       </nav>
 
-      <div class="header-cta">
-        <a class="btn ghost" href="https://sessionize.com/bsides-rocket-city/" target="_blank">Submit to CFP</a>
-        <a class="btn primary" href="https://www.eventbrite.com/" target="_blank">Register</a>
-      </div>
-
     </div>
   </header>
 
-  <main>
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="container center">
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-inner">
+      <img
+        src="assets/images/BSides-Rocket%20City-Logo.png"
+        alt="BSides Rocket City logo"
+        class="hero-logo"
+      />
 
-        <img
-          src="assets/images/BSides-Rocket%20City-Logo.png"
-          alt="BSides Rocket City logo"
-          class="hero-logo"
-        />
+      <h1>BSides Rocket City</h1>
 
-        <h1>BSides Rocket City</h1>
+      <p class="subtitle">
+        A community-built cybersecurity conference — by the community, for the community.
+      </p>
 
-        <p class="subtitle">
-          A community-built cybersecurity conference — by the community, for the community.
-        </p>
+      <p class="meta">
+        <strong>Date TBD</strong><br/>
+        Huntsville, Alabama (Rocket City)
+      </p>
 
-        <p class="meta">
-          <strong>Date TBD</strong><br />
-          Huntsville, Alabama (Rocket City)
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn primary" href="#">Registration Opening Soon</a>
-          <a class="btn" href="https://sessionize.com/bsides-rocket-city/" target="_blank">Submit a Talk</a>
-        </div>
-
+      <div class="hero-actions">
+        <a class="btn primary">Registration Opening Soon</a>
+        <a class="btn" href="https://sessionize.com/bsides-rocket-city/" target="_blank">Submit a Talk</a>
       </div>
-    </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="container">
-        <h2>About</h2>
-        <p>
-          BSides Rocket City is a local, independent, community-driven cybersecurity conference.
-          Everyone is encouraged to participate — talks, workshops, villages, demos, and hallway conversations.
-        </p>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About</h2>
+      <p>
+        BSides Rocket City is a local, independent, community-driven cybersecurity conference.
+        Expect talks, villages, workshops, hardware hacking, RF experiments, and hallway conversations.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= CFP ================= -->
+  <section id="cfp" class="section alt">
+    <div class="container">
+      <h2>Call for Presenters</h2>
+
+      <p>
+        First-time speakers welcome. If you’ve built something cool, broken something interesting,
+        or learned something useful — share it.
+      </p>
+
+      <a class="btn primary" href="https://sessionize.com/bsides-rocket-city/" target="_blank">
+        Submit via Sessionize
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= REGISTRATION ================= -->
+  <section id="register" class="section">
+    <div class="container">
+      <h2>Registration</h2>
+      <p class="muted">Registration details coming soon.</p>
+    </div>
+  </section>
+
+  <!-- ================= VILLAGES ================= -->
+  <section id="villages" class="section alt">
+    <div class="container">
+      <h2>Villages</h2>
+
+      <div class="grid-3">
+        <div class="card">Lockpicking</div>
+        <div class="card">Meshtastic / RF</div>
+        <div class="card">More coming soon</div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CFP -->
-    <section id="cfp" class="section alt">
-      <div class="container">
-        <h2>Call for Presenters (CFP)</h2>
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    © <span id="year"></span> BSides Rocket City
+  </footer>
 
-        <div class="card">
-          <p>
-            Got something cool, nerdy, or practical to share?
-            First-time speakers encouraged.
-          </p>
-          <a class="btn primary" href="https://sessionize.com/bsides-rocket-city/" target="_blank">
-            Submit via Sessionize
-          </a>
-        </div>
-      </div>
-    </section>
 
-    <!-- REGISTRATION -->
-    <section id="register" class="section">
-      <div class="container">
-        <h2>Registration</h2>
-
-        <div class="card">
-          <p class="muted">
-            Registration details will be announced soon. Stay tuned!
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- VILLAGES -->
-    <section id="villages" class="section alt">
-      <div class="container">
-        <h2>Villages</h2>
-
-        <div class="grid-3">
-          <div class="card"><h3>Lockpicking</h3></div>
-          <div class="card"><h3>Meshtastic / RF</h3></div>
-          <div class="card"><h3>More coming soon</h3></div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="site-footer">
-      <div class="container center">
-        © <span id="year"></span> BSides Rocket City
-      </div>
-    </footer>
-
-  </main>
-
+  <!-- ================= JAVASCRIPT ================= -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    /* ===== Terminal Boot Screen ===== */
+    const bootMessages = [
+      "BSides Rocket City BIOS v0.27",
+      "[ OK ] Initializing community modules...",
+      "[ OK ] Loading CFP pipeline...",
+      "[ OK ] Mounting /srv/bsides-rc ...",
+      "[ OK ] Spawning villages...",
+      "[ OK ] Starting web services...",
+      "Welcome to BSides Rocket City."
+    ];
+
+    const boot = document.getElementById("bootScreen");
+    let i = 0;
+
+    function typeLine() {
+      if (i < bootMessages.length) {
+        const line = document.createElement("div");
+        line.textContent = bootMessages[i];
+        boot.appendChild(line);
+        i++;
+        setTimeout(typeLine, 200);
+      } else {
+        setTimeout(() => {
+          boot.classList.add("boot-hide");
+          setTimeout(() => boot.remove(), 600);
+        }, 700);
+      }
+    }
+
+    window.addEventListener("load", typeLine);
   </script>
 
 </body>
