@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>BSides Rocket City</title>
-  <meta name="description" content="BSides Rocket City — community-driven cybersecurity conference in Huntsville, Alabama." />
+  <title>BSides Huntsville</title>
+  <meta name="description" content="BSides Huntsville — community-driven cybersecurity conference in Huntsville, Alabama." />
 
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
@@ -24,13 +24,16 @@
   <header class="site-header">
     <div class="container header-inner">
 
-      <div class="brand-name">BSides Rocket City</div>
+      <div class="brand-name">BSides Huntsville</div>
 
       <nav class="nav">
         <a href="#about">About</a>
         <a href="#cfp">CFP</a>
         <a href="#register">Registration</a>
         <a href="#villages">Villages</a>
+
+        <!-- X / Twitter link -->
+        <a href="https://x.com/BSidesHSV" target="_blank" class="social-link">X</a>
       </nav>
 
     </div>
@@ -41,12 +44,12 @@
     <div class="container center">
 
       <img
-        src="assets/images/BSides-Rocket%20City-Logo.png"
-        alt="BSides Rocket City logo"
+        src="assets/images/bsides-huntsville-logo.png"
+        alt="BSides Huntsville logo"
         class="hero-logo"
       />
 
-      <h1>BSides Rocket City</h1>
+      <h1>BSides Huntsville</h1>
 
       <p class="subtitle">
         A community-built cybersecurity conference — by the community, for the community.
@@ -54,12 +57,12 @@
 
       <p class="meta">
         <strong>Date TBD</strong><br/>
-        Huntsville, Alabama (Rocket City)
+        Huntsville, Alabama
       </p>
 
       <div class="hero-actions">
         <a class="btn primary">Registration Opening Soon</a>
-        <a class="btn" href="https://sessionize.com/bsides-rocket-city/" target="_blank">Submit a Talk</a>
+        <a class="btn" href="#">Submit a Talk (Coming Soon)</a>
       </div>
 
     </div>
@@ -70,8 +73,9 @@
     <div class="container">
       <h2>About</h2>
       <p>
-        BSides Rocket City is a local, independent, community-driven cybersecurity conference.
-        Expect talks, villages, workshops, hardware hacking, RF experiments, and hallway conversations.
+        <strong>BSides Huntsville</strong> is a local, independent, community-driven cybersecurity
+        conference focused on sharing knowledge, building skills, and connecting the Rocket City
+        security community.
       </p>
     </div>
   </section>
@@ -80,15 +84,9 @@
   <section id="cfp" class="section alt">
     <div class="container">
       <h2>Call for Presenters</h2>
-
       <p>
-        First-time speakers welcome. If you’ve built something cool, broken something interesting,
-        or learned something useful — share it.
+        CFP details coming soon. First-time speakers always encouraged.
       </p>
-
-      <a class="btn primary" href="https://sessionize.com/bsides-rocket-city/" target="_blank">
-        Submit via Sessionize
-      </a>
     </div>
   </section>
 
@@ -107,7 +105,7 @@
 
       <div class="grid-3">
         <div class="card">Lockpicking</div>
-        <div class="card">Meshtastic / RF</div>
+        <div class="card">Hardware / RF</div>
         <div class="card">More coming soon</div>
       </div>
     </div>
@@ -115,7 +113,8 @@
 
   <!-- ================= FOOTER ================= -->
   <footer class="site-footer">
-    © <span id="year"></span> BSides Rocket City
+    © <span id="year"></span> BSides Huntsville •
+    <a href="https://x.com/BSidesHSV" target="_blank">Follow us on X</a>
   </footer>
 
 
@@ -125,13 +124,13 @@
 
     /* ===== Terminal Boot Screen ===== */
     const bootMessages = [
-      "BSides Rocket City BIOS v0.27",
+      "BSides Huntsville BIOS v0.27",
       "[ OK ] Initializing community modules...",
       "[ OK ] Loading CFP pipeline...",
-      "[ OK ] Mounting /srv/bsides-rc ...",
+      "[ OK ] Mounting /srv/bsides-hsv ...",
       "[ OK ] Spawning villages...",
       "[ OK ] Starting web services...",
-      "Welcome to BSides Rocket City."
+      "Welcome to BSides Huntsville."
     ];
 
     const boot = document.getElementById("bootScreen");
