@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="BSides Huntsville 2027 — a community-driven cybersecurity conference built by and for the community." />
-  <title>BSides Huntsville 2027</title>
+  <meta name="description" content="BSides Rocket City 2027 — a community-driven cybersecurity conference built by and for the community." />
+  <title>BSides Rocket City 2027</title>
 
   <!-- Cloudflare Fonts (fast + privacy-friendly) -->
   <link rel="preconnect" href="https://fonts.cloudflare.com" crossorigin />
@@ -22,7 +22,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
-        <span class="brand-name">BSides Huntsville</span>
+        <span class="brand-name">BSides Rocket City</span>
       </div>
 
       <nav class="nav" aria-label="Primary navigation">
@@ -34,8 +34,8 @@
       </nav>
 
       <div class="header-cta">
-        <a class="btn ghost" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener noreferrer">Submit to CFP</a>
-        <a class="btn primary" href="https://www.eventbrite.com/e/bsides-huntsville-tickets-1980831909564" target="_blank" rel="noopener noreferrer">Register</a>
+        <a class="btn ghost" href="https://sessionize.com/bsides-rocket-city/" target="_blank" rel="noopener noreferrer">Submit to CFP</a>
+        <a class="btn primary" href="https://www.eventbrite.com/e/bsides-rocket-city-tickets-1980831909564" target="_blank" rel="noopener noreferrer">Register</a>
       </div>
     </div>
   </header>
@@ -50,14 +50,14 @@
 
           <img
             id="heroLogo"
-            src="assets/images/bsides-huntsville-logo.png"
-            alt="BSides Huntsville logo"
+            src="assets/images/BSides-Rocket%20City-Logo.png"
+            alt="BSides Rocket City logo"
             class="hero-logo"
             loading="eager"
           />
         </div>
 
-        <h1>BSides Huntsville 2027</h1>
+        <h1>BSides Rocket City 2027</h1>
 
         <p class="subtitle">
           A community-built cybersecurity conference — by the community, for the community.
@@ -65,14 +65,14 @@
 
         <p class="meta">
           <strong>April 16–17, 2027 (Friday–Saturday)</strong><br />
-          Huntsville, Alabama
+          Huntsville, Alabama (Rocket City)
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="https://www.eventbrite.com/e/bsides-huntsville-tickets-1980831909564" target="_blank" rel="noopener noreferrer">
+          <a class="btn primary" href="https://www.eventbrite.com/e/bsides-rocket-city-tickets-1980831909564" target="_blank" rel="noopener noreferrer">
             Open Registration
           </a>
-          <a class="btn" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener noreferrer">
+          <a class="btn" href="https://sessionize.com/bsides-rocket-city/" target="_blank" rel="noopener noreferrer">
             Submit a Talk / Workshop
           </a>
         </div>
@@ -88,7 +88,7 @@
     <!-- COUNTDOWN -->
     <section id="countdown" class="section alt">
       <div class="container center">
-        <h2 id="countdown-title">BSides Huntsville starts in</h2>
+        <h2 id="countdown-title">BSides Rocket City starts in</h2>
 
         <div class="timer">
           <div class="timebox"><span id="days">0</span><small>Days</small></div>
@@ -104,7 +104,7 @@
       <div class="container">
         <h2>About</h2>
         <p>
-          BSides Huntsville is a local, independent, community-driven cybersecurity conference.
+          BSides Rocket City is a local, independent, community-driven cybersecurity conference.
           Everyone is encouraged to participate — talks, workshops, villages, demos, and hallway conversations.
         </p>
         <p class="muted">
@@ -125,7 +125,7 @@
               We welcome new speakers and first-time presenters. If you have something practical, nerdy,
               or hard-earned to share — submit it.
             </p>
-            <a class="btn primary" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener noreferrer">
+            <a class="btn primary" href="https://sessionize.com/bsides-rocket-city/" target="_blank" rel="noopener noreferrer">
               Submit via Sessionize
             </a>
           </div>
@@ -155,7 +155,7 @@
           <p><strong>Registration is handled through Eventbrite:</strong></p>
 
           <a class="btn primary"
-             href="https://www.eventbrite.com/e/bsides-huntsville-tickets-1980831909564"
+             href="https://www.eventbrite.com/e/bsides-rocket-city-tickets-1980831909564"
              target="_blank" rel="noopener noreferrer">
             Open Registration
           </a>
@@ -170,7 +170,7 @@
           <h3 class="mt">Early Registration Bonus</h3>
           <p class="muted">
             Participants who register on or before <strong>January 31, 2027</strong> will receive a
-            <strong>free electronic conference badge</strong> (while supplies last), made by Huntsville’s own
+            <strong>free electronic conference badge</strong> (while supplies last), made by Rocket City's own
             <strong>MakeItHackin</strong>.
           </p>
 
@@ -207,7 +207,7 @@
             <p>
               Want to run a village? Submit through the CFP.
             </p>
-            <a class="btn" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener noreferrer">
+            <a class="btn" href="https://sessionize.com/bsides-rocket-city/" target="_blank" rel="noopener noreferrer">
               Submit a Village Proposal
             </a>
           </div>
@@ -217,7 +217,7 @@
 
     <footer class="site-footer">
       <div class="container center">
-        <p class="muted small">© <span id="year"></span> BSides Huntsville</p>
+        <p class="muted small">© <span id="year"></span> BSides Rocket City</p>
       </div>
     </footer>
   </main>
@@ -238,14 +238,14 @@
       let diff;
       if (now < startDate) {
         diff = startDate - now;
-        title.textContent = "BSides Huntsville starts in";
+        title.textContent = "BSides Rocket City starts in";
         timer.style.display = "";
       } else if (now <= endDate) {
         diff = endDate - now;
-        title.textContent = "BSides Huntsville is live! Ends in";
+        title.textContent = "BSides Rocket City is live! Ends in";
         timer.style.display = "";
       } else {
-        title.textContent = "BSides Huntsville 2027 has concluded";
+        title.textContent = "BSides Rocket City 2027 has concluded";
         timer.style.display = "none";
         return;
       }
@@ -261,14 +261,14 @@
 
     // ===== Boot Screen =====
     const bootMessages = [
-      "BSides Huntsville BIOS v0.27",
+      "BSides Rocket City BIOS v0.27",
       "[ OK ] Initializing community modules...",
       "[ OK ] Loading CFP pipeline...",
-      "[ OK ] Mounting /srv/bsides-hsv ...",
+      "[ OK ] Mounting /srv/bsides-rc ...",
       "[ OK ] Spawning villages: lockpicking, meshtastic ...",
       "[ OK ] Verifying privacy policy: no attendee list sales",
       "[ OK ] Starting web services...",
-      "Welcome to BSides Huntsville."
+      "Welcome to BSides Rocket City."
     ];
 
     const bootScreen = document.getElementById("bootScreen");
