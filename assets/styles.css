@@ -7,7 +7,6 @@
   --border:rgba(255,255,255,.1);
 
   --hacker:#8dff95;
-  --hacker-dark:#001a0c;
 }
 
 /* ===== Base ===== */
@@ -34,13 +33,12 @@ body{
   text-align:center;
   padding:8px 0;
   font-weight:700;
-  letter-spacing:.5px;
   border-bottom:1px solid rgba(141,255,149,.3);
   text-shadow:0 0 10px rgba(141,255,149,.6);
-  animation: blinkCursor 1.2s infinite;
+  animation: blink 1.2s infinite;
 }
 
-@keyframes blinkCursor{
+@keyframes blink{
   0%,100%{opacity:1}
   50%{opacity:.65}
 }
@@ -55,7 +53,6 @@ body{
   font-size:14px;
   padding:24px;
   z-index:9999;
-  text-shadow:0 0 8px rgba(141,255,149,.35);
   transition:opacity .6s ease;
 }
 
@@ -88,6 +85,11 @@ body{
 }
 
 .nav a:hover{ color:white; }
+
+.social-link{
+  color:#1da1f2;
+  font-weight:700;
+}
 
 /* ===== Hero ===== */
 .hero{
