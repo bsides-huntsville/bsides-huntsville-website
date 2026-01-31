@@ -2,134 +2,426 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="BSides Huntsville 2027 — a community-driven cybersecurity conference built by and for the community." />
+  <title>BSides Huntsville 2027</title>
 
-  <title>BSides Huntsville</title>
-  <meta name="description" content="BSides Huntsville — community-driven cybersecurity conference in Huntsville, Alabama." />
+  <!-- Cloudflare Fonts (fast + privacy-friendly) -->
+  <link rel="preconnect" href="https://fonts.cloudflare.com" crossorigin />
+  <link href="https://fonts.cloudflare.com/css?family=Inter:400,500,600,700,800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 
 <body>
+  <!-- Boot / Loading Screen -->
+  <div id="bootScreen" class="boot-screen" aria-hidden="true"></div>
 
-  <!-- ================= TERMINAL BOOT SCREEN ================= -->
-  <div id="bootScreen" class="boot-screen"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ================= HACKER BANNER ================= -->
-  <div class="top-banner">
-    &gt; More info coming soon _
-  </div>
-
-  <!-- ================= HEADER ================= -->
   <header class="site-header">
     <div class="container header-inner">
+      <div class="brand">
+        <span class="brand-name">BSides Huntsville</span>
+      </div>
 
-      <div class="brand-name">BSides Huntsville</div>
-
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary navigation">
         <a href="#about">About</a>
+        <a href="#countdown">Countdown</a>
         <a href="#cfp">CFP</a>
         <a href="#register">Registration</a>
         <a href="#villages">Villages</a>
       </nav>
 
+      <div class="header-cta">
+        <a class="btn ghost" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener noreferrer">Submit to CFP</a>
+        <a class="btn primary" href="https://www.eventbrite.com/e/bsides-huntsville-tickets-1980831909564" target="_blank" rel="noopener noreferrer">Register</a>
+      </div>
     </div>
   </header>
 
-  <!-- ================= HERO ================= -->
-  <section class="hero">
-    <div class="container center">
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
 
-      <img
-        src="assets/images/bsides-huntsville-logo.png"
-        alt="BSides Huntsville logo"
-        class="hero-logo"
-      />
+        <div class="hero-visual">
+          <!-- canvas id="rocketTrail" class="rocket-trail" aria-hidden="true"></canvas -->
 
-      <h1>BSides Huntsville</h1>
+          <img
+            id="heroLogo"
+            src="assets/images/bsides-huntsville-logo.png"
+            alt="BSides Huntsville logo"
+            class="hero-logo"
+            loading="eager"
+          />
+        </div>
 
-      <p class="subtitle">
-        A community-built cybersecurity conference — by the community, for the community.
-      </p>
+        <h1>BSides Huntsville 2027</h1>
 
-      <p class="meta">
-        <strong>Date TBD</strong><br/>
-        Huntsville, Alabama
-      </p>
+        <p class="subtitle">
+          A community-built cybersecurity conference — by the community, for the community.
+        </p>
 
-      <div class="hero-actions">
-        <a class="btn primary">Registration Opening Soon</a>
-        <a class="btn">Submit a Talk (Coming Soon)</a>
+        <p class="meta">
+          <strong>April 16–17, 2027 (Friday–Saturday)</strong><br />
+          Huntsville, Alabama
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="https://www.eventbrite.com/e/bsides-huntsville-tickets-1980831909564" target="_blank" rel="noopener noreferrer">
+            Open Registration
+          </a>
+          <a class="btn" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener noreferrer">
+            Submit a Talk / Workshop
+          </a>
+        </div>
+
+        <div class="hero-note">
+          <div class="pill">Bring your Meshtastic nodes</div>
+          <div class="pill">Lockpicking Village</div>
+          <div class="pill">Electronic badges (early registration)</div>
+        </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- COUNTDOWN -->
+    <section id="countdown" class="section alt">
+      <div class="container center">
+        <h2 id="countdown-title">BSides Huntsville starts in</h2>
 
-  <!-- ================= ABOUT ================= -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2>About</h2>
-      <p>
-        BSides Huntsville is a local, independent, community-driven cybersecurity conference
-        focused on sharing knowledge, building skills, and connecting the Rocket City security community.
-      </p>
-    </div>
-  </section>
+        <div class="timer">
+          <div class="timebox"><span id="days">0</span><small>Days</small></div>
+          <div class="timebox"><span id="hours">0</span><small>Hours</small></div>
+          <div class="timebox"><span id="minutes">0</span><small>Minutes</small></div>
+          <div class="timebox"><span id="seconds">0</span><small>Seconds</small></div>
+        </div>
+      </div>
+    </section>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="site-footer">
-    <div class="footer-inner">
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About</h2>
+        <p>
+          BSides Huntsville is a local, independent, community-driven cybersecurity conference.
+          Everyone is encouraged to participate — talks, workshops, villages, demos, and hallway conversations.
+        </p>
+        <p class="muted">
+          We run a fair and open CFP. Sponsors do not receive speaking slots. Participant information is never sold or shared.
+        </p>
+      </div>
+    </section>
 
-      <span>© <span id="year"></span> BSides Huntsville</span>
+    <!-- CFP -->
+    <section id="cfp" class="section alt">
+      <div class="container">
+        <h2>Call for Presenters (CFP)</h2>
 
-      <!-- Social icon only -->
-      <a href="https://x.com/BSidesHSV" target="_blank" class="social-icon" aria-label="Follow on X">
+        <div class="grid-2">
+          <div class="card">
+            <h3>Submit a Talk or Workshop</h3>
+            <p>
+              We welcome new speakers and first-time presenters. If you have something practical, nerdy,
+              or hard-earned to share — submit it.
+            </p>
+            <a class="btn primary" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener noreferrer">
+              Submit via Sessionize
+            </a>
+          </div>
 
-        <!-- Inline X/Twitter SVG -->
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-          <path d="M18.244 2H21.5l-7.6 8.7L22 22h-6.8l-5.3-6.9L3.9 22H.6l8.1-9.2L1 2h7l4.8 6.3L18.244 2Zm-1.2 18h1.9L7.2 4H5.2l11.844 16Z"/>
-        </svg>
+          <div class="card">
+            <h3>What we’re looking for</h3>
+            <ul class="bullets">
+              <li>Offensive & defensive security</li>
+              <li>Hardware hacking, RF, and IoT</li>
+              <li>Cloud, AppSec, OSINT, forensics</li>
+              <li>Workshops, hands-on labs, demos</li>
+            </ul>
+            <p class="muted small">
+              Everyone (including sponsors) submits through the same CFP process.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      </a>
+    <!-- REGISTRATION -->
+    <section id="register" class="section">
+      <div class="container">
+        <h2>Registration</h2>
 
-    </div>
-  </footer>
+        <div class="card big">
+          <p><strong>Registration is handled through Eventbrite:</strong></p>
 
+          <a class="btn primary"
+             href="https://www.eventbrite.com/e/bsides-huntsville-tickets-1980831909564"
+             target="_blank" rel="noopener noreferrer">
+            Open Registration
+          </a>
 
-  <!-- ================= JAVASCRIPT ================= -->
+          <div class="notice">
+            <div class="notice-title">Test Access Password: <code>BSidesRocketCity</code></div>
+            <div class="muted small">
+              Note: Temp Password for eventbrite event.
+            </div>
+          </div>
+
+          <h3 class="mt">Early Registration Bonus</h3>
+          <p class="muted">
+            Participants who register on or before <strong>January 31, 2027</strong> will receive a
+            <strong>free electronic conference badge</strong> (while supplies last), made by Huntsville’s own
+            <strong>MakeItHackin</strong>.
+          </p>
+
+          <p class="muted small">
+            Privacy note: participant information is never sold or shared with sponsors or third parties.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VILLAGES -->
+    <section id="villages" class="section alt">
+      <div class="container">
+        <h2>Villages</h2>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Lockpicking Village</h3>
+            <p>
+              Learn the basics, level up your skills, and get hands-on with practice locks.
+              Beginner-friendly and community-taught.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Meshtastic Meetup</h3>
+            <p>
+              Bring your nodes and radios. Expect experimentation, troubleshooting, and nerdy mesh networking discussions.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>More coming soon</h3>
+            <p>
+              Want to run a village? Submit through the CFP.
+            </p>
+            <a class="btn" href="https://sessionize.com/bsides-huntsville/" target="_blank" rel="noopener noreferrer">
+              Submit a Village Proposal
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container center">
+        <p class="muted small">© <span id="year"></span> BSides Huntsville</p>
+      </div>
+    </footer>
+  </main>
+
   <script>
+    // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Countdown
+    const startDate = new Date("2027-04-16T09:00:00-05:00");
+    const endDate   = new Date("2027-04-17T18:00:00-05:00");
+
+    function updateCountdown() {
+      const now = new Date();
+      const title = document.getElementById("countdown-title");
+      const timer = document.querySelector(".timer");
+
+      let diff;
+      if (now < startDate) {
+        diff = startDate - now;
+        title.textContent = "BSides Huntsville starts in";
+        timer.style.display = "";
+      } else if (now <= endDate) {
+        diff = endDate - now;
+        title.textContent = "BSides Huntsville is live! Ends in";
+        timer.style.display = "";
+      } else {
+        title.textContent = "BSides Huntsville 2027 has concluded";
+        timer.style.display = "none";
+        return;
+      }
+
+      document.getElementById("days").textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.getElementById("hours").textContent = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      document.getElementById("minutes").textContent = Math.floor((diff / (1000 * 60)) % 60);
+      document.getElementById("seconds").textContent = Math.floor((diff / 1000) % 60);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // ===== Boot Screen =====
     const bootMessages = [
       "BSides Huntsville BIOS v0.27",
       "[ OK ] Initializing community modules...",
       "[ OK ] Loading CFP pipeline...",
       "[ OK ] Mounting /srv/bsides-hsv ...",
-      "[ OK ] Spawning villages...",
+      "[ OK ] Spawning villages: lockpicking, meshtastic ...",
+      "[ OK ] Verifying privacy policy: no attendee list sales",
       "[ OK ] Starting web services...",
       "Welcome to BSides Huntsville."
     ];
 
-    const boot = document.getElementById("bootScreen");
-    let i = 0;
+    const bootScreen = document.getElementById("bootScreen");
+    let bootIndex = 0;
 
-    function typeLine() {
-      if (i < bootMessages.length) {
+    function typeBootMessage() {
+      if (!bootScreen) return;
+      if (bootIndex < bootMessages.length) {
         const line = document.createElement("div");
-        line.textContent = bootMessages[i];
-        boot.appendChild(line);
-        i++;
-        setTimeout(typeLine, 200);
+        line.textContent = bootMessages[bootIndex];
+        bootScreen.appendChild(line);
+        bootIndex++;
+        setTimeout(typeBootMessage, 240);
       } else {
         setTimeout(() => {
-          boot.classList.add("boot-hide");
-          setTimeout(() => boot.remove(), 600);
+          bootScreen.classList.add("boot-hide");
+          setTimeout(() => bootScreen.remove(), 650);
         }, 700);
       }
     }
 
-    window.addEventListener("load", typeLine);
-  </script>
+    window.addEventListener("load", () => {
+      typeBootMessage();
+    });
 
+    // ===== Slow Binary Rain Behind Rocket =====
+    /*const canvas = document.getElementById("rocketTrail");
+    const ctx = canvas.getContext("2d");
+    const logo = document.getElementById("heroLogo");
+
+    function fitCanvas() {
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    
+
+    // “exhaust region” wedge
+    let trail = { x0: 0, y0: 0, x1: 0, yTop: 0, yBot: 0 };
+
+    function computeTrailRegion() {
+      const cRect = canvas.getBoundingClientRect();
+      const lRect = logo.getBoundingClientRect();
+
+      const logoLeft = lRect.left - cRect.left;
+      const logoTop  = lRect.top  - cRect.top;
+      const logoW = lRect.width;
+      const logoH = lRect.height;
+
+      // tweakable exhaust origin
+      trail.x0 = logoLeft + logoW * 0.70;
+      trail.y0 = logoTop  + logoH * 0.26;
+      trail.x1 = canvas.clientWidth + 40;
+
+      trail.yTop = trail.y0 - logoH * 0.10;
+      trail.yBot = trail.y0 + logoH * 0.38;
+    }
+
+    function wedgeBoundsAtX(x) {
+      const t = Math.max(0, Math.min(1, (x - trail.x0) / (trail.x1 - trail.x0)));
+      const top = trail.yTop - t * 12;
+      const bot = trail.yBot + t * 26;
+      return { top, bot, t };
+    }
+
+    const drops = [];
+    const MAX = 260;
+
+    function spawnDrop() {
+      const x = trail.x0 + Math.random() * (canvas.clientWidth - trail.x0);
+      const { top, bot, t } = wedgeBoundsAtX(x);
+
+      // start slightly above the wedge (so it “rains in”)
+      const y = top - 10 - Math.random() * 50;
+
+      const isRed = Math.random() > 0.82;
+      return {
+        x,
+        y,
+        vy: 0.18 + Math.random() * 0.55,   // ✅ SLOW FALL SPEED
+        vx: (Math.random() - 0.5) * 0.12,  // subtle drift
+        a: 0.20 + Math.random() * 0.55,
+        s: 12 + Math.random() * 10,
+        c: isRed ? "rgba(220,38,38," : "rgba(141,255,149,",
+        ch: Math.random() > 0.5 ? "1" : "0",
+        life: 0,
+        maxLife: 420 + Math.random() * 260  // longer life so it feels slower
+      };
+    }
+
+    function drawRain() {
+      // fade gently (lower alpha = longer trails)
+      ctx.fillStyle = "rgba(0,0,0,0.07)";
+      ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+
+      // spawn a few per frame
+      if (drops.length < MAX) {
+        const spawnCount = 2; // fewer spawns = calmer rain
+        for (let i = 0; i < spawnCount; i++) drops.push(spawnDrop());
+      }
+
+      ctx.save();
+      ctx.textBaseline = "middle";
+
+      for (let i = drops.length - 1; i >= 0; i--) {
+        const p = drops[i];
+        p.life += 1;
+
+        p.y += p.vy;
+        p.x += p.vx;
+
+        const { top, bot, t } = wedgeBoundsAtX(p.x);
+
+        // fade out as it goes farther right + with age
+        const alpha = p.a * (1 - t * 0.85) * (1 - (p.life / p.maxLife));
+
+        if (p.life > p.maxLife || p.y > bot + 60 || p.x < trail.x0 || alpha <= 0.01 || p.y < top - 120) {
+          drops.splice(i, 1);
+          continue;
+        }
+
+        // only draw if inside wedge
+        if (p.y >= top && p.y <= bot) {
+          ctx.shadowBlur = 14;
+          ctx.shadowColor = p.c + "0.85)";
+          ctx.fillStyle = p.c + alpha.toFixed(3) + ")";
+          ctx.font = `800 ${p.s}px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace`;
+          ctx.fillText(p.ch, p.x, p.y);
+        }
+      }
+
+      ctx.restore();
+      requestAnimationFrame(drawRain);
+    }
+
+    function startRain() {
+      if (!logo.complete) {
+        requestAnimationFrame(startRain);
+        return;
+      }
+      fitCanvas();
+      computeTrailRegion();
+      drawRain();
+    }
+
+    window.addEventListener("resize", () => {
+      fitCanvas();
+      computeTrailRegion();
+    });
+
+    startRain();*/
+  </script>
 </body>
 </html>
