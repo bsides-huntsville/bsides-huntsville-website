@@ -40,7 +40,43 @@ a:hover{ opacity:.95; }
 
 .center{ text-align:center; }
 
-/* Boot / Loading Screen */
+.top-banner{
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding: 8px 10px;
+  background: linear-gradient(90deg, rgba(0,26,12,.92), rgba(0,51,24,.92));
+  border-bottom: 1px solid rgba(141,255,149,.22);
+  color: rgba(141,255,149,.95);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+  font-weight: 800;
+  letter-spacing: .3px;
+  text-shadow: 0 0 12px rgba(141,255,149,.22);
+  backdrop-filter: blur(10px);
+}
+
+.top-banner__prompt{
+  opacity: .95;
+}
+
+.top-banner__text{
+  opacity: .95;
+}
+
+.top-banner__cursor{
+  opacity: 1;
+  animation: bannerBlink 1.15s steps(1,end) infinite;
+}
+
+@keyframes bannerBlink{
+  0%,49%{ opacity: 1; }
+  50%,100%{ opacity: 0; }
+}
+
 .boot-screen{
   position: fixed;
   inset: 0;
@@ -55,13 +91,13 @@ a:hover{ opacity:.95; }
   transition: opacity .6s ease, transform .6s ease;
   text-shadow: 0 0 10px rgba(141,255,149,.25);
 }
+
 .boot-screen.boot-hide{
   opacity: 0;
   transform: translateY(-6px);
   pointer-events: none;
 }
 
-/* Skip link */
 .skip-link{
   position:absolute;
   left:-9999px;
@@ -70,6 +106,7 @@ a:hover{ opacity:.95; }
   height:1px;
   overflow:hidden;
 }
+
 .skip-link:focus{
   left:16px;
   top:16px;
@@ -82,15 +119,15 @@ a:hover{ opacity:.95; }
   z-index:9999;
 }
 
-/* Header */
 .site-header{
   position:sticky;
-  top:0;
+  top: 40px;
   z-index:50;
   backdrop-filter: blur(10px);
   background: rgba(6,10,15,.70);
   border-bottom:1px solid var(--border);
 }
+
 .header-inner{
   display:flex;
   gap:16px;
@@ -98,22 +135,26 @@ a:hover{ opacity:.95; }
   justify-content:space-between;
   padding:14px 0;
 }
+
 .brand-name{
   font-weight:800;
   letter-spacing:.2px;
 }
+
 .nav{
   display:flex;
   gap:14px;
   flex-wrap:wrap;
   justify-content:center;
 }
+
 .nav a{
   color: var(--muted);
   text-decoration:none;
   font-weight:600;
   font-size:14px;
 }
+
 .nav a:hover{ color: var(--text); }
 
 .header-cta{
@@ -122,7 +163,6 @@ a:hover{ opacity:.95; }
   align-items:center;
 }
 
-/* Buttons */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -137,19 +177,21 @@ a:hover{ opacity:.95; }
   font-weight:800;
   box-shadow: 0 10px 26px rgba(0,0,0,.18);
 }
+
 .btn:hover{
   border-color: rgba(255,255,255,.20);
   box-shadow: 0 14px 38px rgba(0,0,0,.24);
 }
+
 .btn.primary{
   background: rgba(220,38,38,.22);
   border-color: rgba(220,38,38,.55);
 }
+
 .btn.ghost{
   background: transparent;
 }
 
-/* Sections */
 .section{
   padding: 72px 0;
   background:
@@ -159,6 +201,7 @@ a:hover{ opacity:.95; }
   border-top: 1px solid var(--section-edge);
   border-bottom: 1px solid var(--section-edge);
 }
+
 .section.alt{
   background:
     var(--section-soft-top),
@@ -175,25 +218,23 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
 .muted{ color: var(--muted); }
 .small{ font-size: 13px; }
 
-/* Hero */
 .hero{
   padding: 78px 0 54px;
   border-bottom: 1px solid var(--border);
 }
+
 .hero-inner{ text-align:center; }
 
-/* Wrapper for logo + canvas: NO border/frame */
 .hero-visual{
   position: relative;
   width: min(860px, 96%);
   margin: 0 auto 18px;
-  overflow: visible; /* prevents “boxed” clipping look */
+  overflow: visible;
   background: transparent;
   border: 0;
   box-shadow: none;
 }
 
-/* Canvas sits behind logo */
 .rocket-trail{
   position: absolute;
   inset: 0;
@@ -204,7 +245,6 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
   opacity: 0.90;
 }
 
-/* Logo glow */
 .hero-logo{
   position: relative;
   z-index: 1;
@@ -224,10 +264,12 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
   max-width: 72ch;
   color: rgba(229,231,235,.78);
 }
+
 .meta{
   margin: 0 auto 18px;
   color: rgba(229,231,235,.65);
 }
+
 .hero-actions{
   display:flex;
   justify-content:center;
@@ -235,6 +277,7 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
   flex-wrap:wrap;
   margin: 18px 0 16px;
 }
+
 .hero-note{
   display:flex;
   gap:10px;
@@ -242,6 +285,7 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
   justify-content:center;
   margin-top: 12px;
 }
+
 .pill{
   border: 1px solid var(--border);
   background: rgba(15,23,42,.45);
@@ -252,7 +296,6 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
   color: rgba(229,231,235,.88);
 }
 
-/* Countdown */
 .timer{
   display:flex;
   justify-content:center;
@@ -260,6 +303,7 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
   margin-top:18px;
   flex-wrap:wrap;
 }
+
 .timebox{
   width: 120px;
   border-radius: 16px;
@@ -268,6 +312,7 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
   background: rgba(2,6,23,.55);
   box-shadow: var(--shadow);
 }
+
 .timebox span{
   display:block;
   font-size: 34px;
@@ -275,13 +320,13 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
   line-height: 1;
   margin-bottom: 6px;
 }
+
 .timebox small{
   color: rgba(229,231,235,.75);
   font-weight: 800;
   letter-spacing: .2px;
 }
 
-/* Cards */
 .card{
   background: linear-gradient(180deg, rgba(15,23,42,.62), rgba(15,23,42,.42));
   border: 1px solid var(--border);
@@ -289,6 +334,7 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
   padding: 18px;
   box-shadow: var(--shadow);
 }
+
 .card.big{
   padding: 20px;
   border-radius: 18px;
@@ -299,6 +345,7 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
   grid-template-columns: repeat(2, minmax(0,1fr));
   gap: 14px;
 }
+
 .grid-3{
   display:grid;
   grid-template-columns: repeat(3, minmax(0,1fr));
@@ -309,9 +356,9 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
   padding-left: 18px;
   color: rgba(229,231,235,.88);
 }
+
 .bullets li{ margin: 6px 0; }
 
-/* Notice box */
 .notice{
   margin-top: 14px;
   padding: 12px 12px;
@@ -319,10 +366,12 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
   background: var(--noticeBg);
   border: 1px solid var(--noticeBorder);
 }
+
 .notice-title{
   font-weight: 900;
   margin-bottom: 6px;
 }
+
 code{
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 0.95em;
@@ -334,18 +383,45 @@ code{
 
 .mt{ margin-top: 16px; }
 
-/* Footer */
 .site-footer{
   padding: 34px 0;
   border-top: 1px solid var(--border);
 }
 
-/* Responsive */
+.footer-inner{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+}
+
+.social-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(15,23,42,.35);
+  color: rgba(229,231,235,.70);
+  text-decoration:none;
+  transition: transform .15s ease, color .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.social-icon:hover{
+  transform: translateY(-1px);
+  color: rgba(141,255,149,.92);
+  border-color: rgba(141,255,149,.22);
+  background: rgba(0, 51, 24, .20);
+}
+
 @media (max-width: 900px){
   .grid-3{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
   .header-inner{ flex-wrap:wrap; justify-content:center; }
   .nav{ justify-content:center; }
+  .site-header{ top: 40px; }
 }
 
 @media (max-width: 640px){
