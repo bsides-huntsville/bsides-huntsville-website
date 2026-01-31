@@ -31,9 +31,6 @@
         <a href="#cfp">CFP</a>
         <a href="#register">Registration</a>
         <a href="#villages">Villages</a>
-
-        <!-- X / Twitter link -->
-        <a href="https://x.com/BSidesHSV" target="_blank" class="social-link">X</a>
       </nav>
 
     </div>
@@ -62,7 +59,7 @@
 
       <div class="hero-actions">
         <a class="btn primary">Registration Opening Soon</a>
-        <a class="btn" href="#">Submit a Talk (Coming Soon)</a>
+        <a class="btn">Submit a Talk (Coming Soon)</a>
       </div>
 
     </div>
@@ -73,48 +70,29 @@
     <div class="container">
       <h2>About</h2>
       <p>
-        <strong>BSides Huntsville</strong> is a local, independent, community-driven cybersecurity
-        conference focused on sharing knowledge, building skills, and connecting the Rocket City
-        security community.
+        BSides Huntsville is a local, independent, community-driven cybersecurity conference
+        focused on sharing knowledge, building skills, and connecting the Rocket City security community.
       </p>
-    </div>
-  </section>
-
-  <!-- ================= CFP ================= -->
-  <section id="cfp" class="section alt">
-    <div class="container">
-      <h2>Call for Presenters</h2>
-      <p>
-        CFP details coming soon. First-time speakers always encouraged.
-      </p>
-    </div>
-  </section>
-
-  <!-- ================= REGISTRATION ================= -->
-  <section id="register" class="section">
-    <div class="container">
-      <h2>Registration</h2>
-      <p class="muted">Registration details coming soon.</p>
-    </div>
-  </section>
-
-  <!-- ================= VILLAGES ================= -->
-  <section id="villages" class="section alt">
-    <div class="container">
-      <h2>Villages</h2>
-
-      <div class="grid-3">
-        <div class="card">Lockpicking</div>
-        <div class="card">Hardware / RF</div>
-        <div class="card">More coming soon</div>
-      </div>
     </div>
   </section>
 
   <!-- ================= FOOTER ================= -->
   <footer class="site-footer">
-    © <span id="year"></span> BSides Huntsville •
-    <a href="https://x.com/BSidesHSV" target="_blank">Follow us on X</a>
+    <div class="footer-inner">
+
+      <span>© <span id="year"></span> BSides Huntsville</span>
+
+      <!-- Social icon only -->
+      <a href="https://x.com/BSidesHSV" target="_blank" class="social-icon" aria-label="Follow on X">
+
+        <!-- Inline X/Twitter SVG -->
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <path d="M18.244 2H21.5l-7.6 8.7L22 22h-6.8l-5.3-6.9L3.9 22H.6l8.1-9.2L1 2h7l4.8 6.3L18.244 2Zm-1.2 18h1.9L7.2 4H5.2l11.844 16Z"/>
+        </svg>
+
+      </a>
+
+    </div>
   </footer>
 
 
@@ -122,7 +100,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    /* ===== Terminal Boot Screen ===== */
     const bootMessages = [
       "BSides Huntsville BIOS v0.27",
       "[ OK ] Initializing community modules...",
