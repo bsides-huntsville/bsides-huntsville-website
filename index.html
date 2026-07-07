@@ -3,8 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="BSides Rocket City — a community-driven cybersecurity conference built by and for the community." />
-  <title>BSides Rocket City</title>
+  <meta name="description" content="BSides Rocket City — Huntsville's free, community-driven information security conference. Saturday, March 20, 2027 at Calhoun Community College. CFP open now." />
+  <title>BSides Rocket City — March 20, 2027 · Huntsville, AL</title>
+
+  <meta property="og:title" content="BSides Rocket City" />
+  <meta property="og:description" content="Huntsville's free, community-driven infosec conference. Saturday, March 20, 2027 · Calhoun Community College. CFP open through December 31, 2026." />
+  <meta property="og:image" content="assets/images/BSides-Rocket City-Logo.png" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="assets/images/BSides-Rocket City-Logo.png" type="image/png" />
 
   <link rel="preconnect" href="https://fonts.cloudflare.com" crossorigin />
   <link href="https://fonts.cloudflare.com/css?family=Inter:400,500,600,700,800&display=swap" rel="stylesheet" />
@@ -17,18 +24,29 @@
 
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <div class="top-banner" role="note">
+    <span class="top-banner__prompt">$</span>
+    <span class="top-banner__text">cfp --status open&nbsp;&nbsp;# closes 2026-12-31 23:59 CT</span>
+    <span class="top-banner__cursor">▮</span>
+  </div>
+
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
-        <span class="brand-name">BSides Rocket City</span>
+        <span class="brand-name">BSides<span class="brand-accent">_</span>Rocket City</span>
       </div>
 
       <nav class="nav" aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#cfp">CFP</a>
-        <a href="#register">Registration</a>
         <a href="#villages">Villages</a>
+        <a href="#register">Registration</a>
+        <a href="code-of-conduct.html">Code of Conduct</a>
       </nav>
+
+      <div class="header-cta">
+        <a class="btn primary small-btn" href="https://sessionize.com/bsides-rocket-city2007/" target="_blank" rel="noopener noreferrer">Submit a Session</a>
+      </div>
     </div>
   </header>
 
@@ -47,6 +65,8 @@
           />
         </div>
 
+        <p class="eyebrow" aria-hidden="true">// huntsville, al — free · community-driven · hacker-built</p>
+
         <h1>BSides Rocket City</h1>
 
         <p class="subtitle">
@@ -54,80 +74,138 @@
         </p>
 
         <p class="meta">
-          <strong>Saturday, March 20</strong><br />
-          Calhoun Community College
+          <strong>Saturday, March 20, 2027</strong><br />
+          Calhoun Community College · Huntsville, Alabama
         </p>
 
         <div class="hero-actions">
-          <span class="btn primary">Registration Opening Soon</span>
+          <a class="btn primary cta" href="https://sessionize.com/bsides-rocket-city2007/" target="_blank" rel="noopener noreferrer">
+            Submit a Session <span aria-hidden="true">→</span>
+          </a>
+          <span class="btn ghost soon">Registration Coming Soon</span>
         </div>
 
         <div class="hero-note">
-          <div class="pill">Bring your Meshtastic nodes</div>
+          <div class="pill">Free to attend</div>
           <div class="pill">Lockpicking Village</div>
+          <div class="pill">Bring your Meshtastic nodes</div>
         </div>
+
+        <div class="timer" id="cfpTimer" aria-label="Time remaining to submit to the call for presenters">
+          <div class="timebox"><span id="tDays">--</span><small>days</small></div>
+          <div class="timebox"><span id="tHours">--</span><small>hours</small></div>
+          <div class="timebox"><span id="tMins">--</span><small>mins</small></div>
+          <div class="timebox"><span id="tSecs">--</span><small>secs</small></div>
+        </div>
+        <p class="muted small timer-caption">until the CFP closes — December 31, 2026, 11:59 PM CT</p>
       </div>
     </section>
 
     <section id="about" class="section">
       <div class="container">
+        <p class="eyebrow" aria-hidden="true">user@rocketcity:~$ cat about.txt</p>
         <h2>About</h2>
         <p>
-          BSides Rocket City is a volunteer-led cybersecurity conference in Huntsville, AL, designed to foster the next generation of defenders.
+          BSides Rocket City is Huntsville's free, community-driven information security conference —
+          by the community, for the community. Hosted in the heart of Rocket City, we bring together
+          hackers, defenders, builders, researchers, students, and the merely curious for a day of
+          technical talks, hands-on workshops, and the hallway conversations that make BSides what it is.
         </p>
 
         <p>
-          We provide a unique, low-barrier platform where K-12 and university students collaborate directly with hackers, rocket scientists, researchers, and industry professionals.
+          We're a volunteer-led conference designed to foster the next generation of defenders:
+          a low-barrier platform where K-12 and university students collaborate directly with hackers,
+          rocket scientists, researchers, and industry professionals.
         </p>
 
         <p class="muted">
-          From first exposure to advanced tradecraft, BSides Rocket City is built to connect curiosity with real-world experience.
+          From first exposure to advanced tradecraft, BSides Rocket City is built to connect curiosity
+          with real-world experience. Free to attend. Bring your curiosity.
         </p>
       </div>
     </section>
 
     <section id="cfp" class="section alt">
       <div class="container">
-        <h2>Call for Presenters (CFP)</h2>
+        <p class="eyebrow" aria-hidden="true">user@rocketcity:~$ ./submit --to cfp</p>
+        <h2>Call for Presenters</h2>
+        <p class="section-lede">
+          The CFP is <strong class="status-open">open now</strong> and closes
+          <strong>December 31, 2026 at 11:59 PM CT</strong>. We especially encourage students,
+          first-time presenters, and new voices to submit.
+        </p>
 
-        <div class="grid-2">
+        <div class="grid-3 formats">
           <div class="card">
-            <h3>CFP will open soon!</h3>
-            <p>
-              We welcome new speakers and first-time presenters. If you have something practical, nerdy,
-              or hard-earned to share — you’ll be able to submit when the CFP opens.
-            </p>
-            <p class="muted small">
-              Everyone, including sponsors, will submit through the same CFP process.
-            </p>
+            <h3><span class="mono-tag">15 min</span> Lightning Talks</h3>
+            <p>One sharp idea, tool, or lesson. Perfect for first-time speakers.</p>
           </div>
-
           <div class="card">
-            <h3>What we’re looking for</h3>
+            <h3><span class="mono-tag">1 hr</span> Talks</h3>
+            <p>Room to go deep — research, demos, war stories, lessons learned.</p>
+          </div>
+          <div class="card">
+            <h3><span class="mono-tag">multi-hr</span> Workshops</h3>
+            <p>Hands-on labs. Tell us what attendees will walk away able to do.</p>
+          </div>
+        </div>
+
+        <div class="grid-2 mt">
+          <div class="card">
+            <h3>What we're looking for</h3>
+            <p>Technical, hands-on, community-driven proposals across:</p>
             <ul class="bullets">
-              <li>Offensive and defensive security</li>
-              <li>Hardware hacking, RF, and IoT</li>
-              <li>Cloud, AppSec, OSINT, and forensics</li>
-              <li>Workshops, hands-on labs, and demos</li>
+              <li>Ethical hacking — red, blue, and purple teaming</li>
+              <li>Space cyber, RF, hardware hacking, and lockpicking</li>
+              <li>Maker projects, AI security, cloud, and ICS/OT</li>
+              <li>Research, tools, demos, war stories, and lessons learned</li>
+              <li>Weird ideas worth sharing</li>
             </ul>
+            <p class="muted small">
+              …anything that helps people build, break, learn, and think differently.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>What we're <em>not</em> accepting</h3>
+            <p>
+              No marketing pitches, no sales talks, no fluff, no business capability briefings.
+              This is for real knowledge-sharing, technical depth, hands-on learning, and
+              community-driven ideas. Everyone, including sponsors, submits through the same CFP.
+            </p>
+            <div class="notice">
+              <div class="notice-title">Make your submission stand out</div>
+              <p class="small">
+                Lead with the problem and why the audience should care, then what you'll show.
+                A clear outline with concrete, practical takeaways goes a long way. For workshops,
+                tell us exactly what attendees will walk away able to do — and what they need to bring.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card big mt timeline-card">
+          <h3>Timeline</h3>
+          <ul class="timeline">
+            <li><code>2026-12-31</code> CFP closes — 11:59 PM CT</li>
+            <li><code>2027-02-05</code> Speaker notifications sent (by this date)</li>
+            <li><code>2027-02-12</code> Speakers confirm their slot</li>
+            <li><code>2027-03-20</code> Launch day — Huntsville, AL 🚀</li>
+          </ul>
+
+          <div class="center mt">
+            <a class="btn primary cta" href="https://sessionize.com/bsides-rocket-city2007/" target="_blank" rel="noopener noreferrer">
+              Submit a Session on Sessionize <span aria-hidden="true">→</span>
+            </a>
+            <p class="muted small mt-sm">Free for speakers. If it's real, technical, and worth sharing — it belongs here.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="register" class="section">
+    <section id="villages" class="section">
       <div class="container">
-        <h2>Registration</h2>
-
-        <div class="card big">
-          <p class="muted">Registration is not open yet.</p>
-          <span class="btn primary">Registration Opening Soon</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="villages" class="section alt">
-      <div class="container">
+        <p class="eyebrow" aria-hidden="true">user@rocketcity:~$ ls /villages</p>
         <h2>Villages</h2>
 
         <div class="grid-3">
@@ -143,15 +221,43 @@
 
           <div class="card">
             <h3>More coming soon</h3>
-            <p>Additional villages will be announced soon.</p>
+            <p>Additional villages will be announced as they're confirmed.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="register" class="section alt">
+      <div class="container">
+        <p class="eyebrow" aria-hidden="true">user@rocketcity:~$ ./register</p>
+        <h2>Registration</h2>
+
+        <div class="card big center">
+          <p class="mono-line">[ PENDING ] Registration is not open yet.</p>
+          <p class="muted">
+            BSides Rocket City is free to attend. Registration details will be announced here —
+            watch this page or follow us on LinkedIn.
+          </p>
+        </div>
+
+        <div class="card big mt center">
+          <h3>Sponsors</h3>
+          <p class="muted">
+            Sponsorship information is coming soon. Sponsors who want to present submit
+            through the same CFP as everyone else.
+          </p>
         </div>
       </div>
     </section>
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p class="muted small">© <span id="year"></span> BSides Rocket City</p>
+        <p class="muted small">© <span id="year"></span> BSides Rocket City · Huntsville, AL</p>
+
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="code-of-conduct.html">Code of Conduct</a>
+          <a href="https://sessionize.com/bsides-rocket-city2007/" target="_blank" rel="noopener noreferrer">CFP</a>
+        </nav>
 
         <a class="social-icon"
            href="https://www.linkedin.com/company/bsides-rocket-city/"
@@ -170,34 +276,87 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    const bootMessages = [
-      "BSides Rocket City BIOS v0.27",
-      "[ OK ] Initializing community modules...",
-      "[ OK ] Loading CFP pipeline...",
-      "[ OK ] Mounting /srv/bsides-rocket-city ...",
-      "[ OK ] Spawning villages...",
-      "[ OK ] Starting web services...",
-      "Welcome to BSides Rocket City."
-    ];
+    // --- CFP countdown (closes Dec 31, 2026 11:59 PM CT / UTC-6) ---
+    (function () {
+      const target = Date.parse("2026-12-31T23:59:59-06:00");
+      const el = {
+        d: document.getElementById("tDays"),
+        h: document.getElementById("tHours"),
+        m: document.getElementById("tMins"),
+        s: document.getElementById("tSecs")
+      };
+      const timer = document.getElementById("cfpTimer");
+      const caption = document.querySelector(".timer-caption");
 
-    const bootScreen = document.getElementById("bootScreen");
-    let bootIndex = 0;
-
-    function typeBootMessage() {
-      if (bootIndex < bootMessages.length) {
-        const line = document.createElement("div");
-        line.textContent = bootMessages[bootIndex++];
-        bootScreen.appendChild(line);
-        setTimeout(typeBootMessage, 240);
-      } else {
-        setTimeout(() => {
-          bootScreen.classList.add("boot-hide");
-          setTimeout(() => bootScreen.remove(), 650);
-        }, 700);
+      function tick() {
+        let diff = target - Date.now();
+        if (diff <= 0) {
+          timer.innerHTML = '<div class="timebox closed"><span>CFP</span><small>closed</small></div>';
+          if (caption) caption.textContent = "The CFP closed December 31, 2026. Thanks to everyone who submitted!";
+          return;
+        }
+        const days = Math.floor(diff / 86400000);
+        const hours = Math.floor(diff / 3600000) % 24;
+        const mins = Math.floor(diff / 60000) % 60;
+        const secs = Math.floor(diff / 1000) % 60;
+        el.d.textContent = days;
+        el.h.textContent = String(hours).padStart(2, "0");
+        el.m.textContent = String(mins).padStart(2, "0");
+        el.s.textContent = String(secs).padStart(2, "0");
+        setTimeout(tick, 1000);
       }
-    }
+      tick();
+    })();
 
-    window.addEventListener("load", typeBootMessage);
+    // --- Boot screen (skippable, once per session, respects reduced motion) ---
+    (function () {
+      const bootScreen = document.getElementById("bootScreen");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let seen = false;
+      try { seen = sessionStorage.getItem("booted") === "1"; } catch (e) {}
+
+      if (reduceMotion || seen) {
+        bootScreen.remove();
+        return;
+      }
+
+      const bootMessages = [
+        "BSides Rocket City BIOS v27.03",
+        "[ OK ] Initializing community modules...",
+        "[ OK ] Loading CFP pipeline... status=OPEN",
+        "[ OK ] Mounting /srv/bsides-rocket-city ...",
+        "[ OK ] Spawning villages...",
+        "[ OK ] Igniting boosters...",
+        "Welcome to BSides Rocket City."
+      ];
+
+      let bootIndex = 0;
+      let dismissed = false;
+
+      function dismiss() {
+        if (dismissed) return;
+        dismissed = true;
+        try { sessionStorage.setItem("booted", "1"); } catch (e) {}
+        bootScreen.classList.add("boot-hide");
+        setTimeout(() => bootScreen.remove(), 650);
+      }
+
+      function typeBootMessage() {
+        if (dismissed) return;
+        if (bootIndex < bootMessages.length) {
+          const line = document.createElement("div");
+          line.textContent = bootMessages[bootIndex++];
+          bootScreen.appendChild(line);
+          setTimeout(typeBootMessage, 220);
+        } else {
+          setTimeout(dismiss, 650);
+        }
+      }
+
+      bootScreen.addEventListener("click", dismiss);
+      window.addEventListener("keydown", dismiss, { once: true });
+      window.addEventListener("load", typeBootMessage);
+    })();
   </script>
 </body>
 </html>
