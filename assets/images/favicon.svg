@@ -1,5 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect x="1.5" y="1.5" width="61" height="61" rx="14" fill="#0b0f14" stroke="#dc2626" stroke-width="3"/>
-  <text x="19" y="46" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="40" font-weight="800" fill="#f3efe6">B</text>
-  <rect x="42" y="41" width="12" height="6" rx="1.5" fill="#8dff95"/>
+  <!-- flame -->
+  <path d="M32 58 C28.5 53 29.5 48.5 32 45 C34.5 48.5 35.5 53 32 58 Z" fill="#8dff95"/>
+  <!-- fins -->
+  <path d="M26.5 34 L18.5 45 L26.5 45 Z" fill="#dc2626"/>
+  <path d="M37.5 34 L45.5 45 L37.5 45 Z" fill="#dc2626"/>
+  <!-- body -->
+  <path d="M26.5 22 L26.5 43 Q26.5 46 29 46 L35 46 Q37.5 46 37.5 43 L37.5 22 Z" fill="#f3efe6"/>
+  <!-- nose cone -->
+  <path d="M26.5 22 C26.5 12.5 30 7.5 32 6 C34 7.5 37.5 12.5 37.5 22 Z" fill="#dc2626"/>
+  <!-- window -->
+  <circle cx="32" cy="28.5" r="3.4" fill="#0b0f14"/>
 </svg>
