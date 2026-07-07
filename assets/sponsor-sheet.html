@@ -1,0 +1,372 @@
+<!doctype html>
+<!--
+  Print source for assets/why-sponsor-bsides-rocket-city.pdf (one-page US Letter sponsor sheet).
+  Regenerate after edits:
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+      --headless=new --disable-gpu --no-pdf-header-footer \
+      --print-to-pdf="assets/why-sponsor-bsides-rocket-city.pdf" \
+      "file://$PWD/assets/sponsor-sheet.html"
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Why Sponsor BSides Rocket City?</title>
+<style>
+  @page{ size: letter; margin: 0; }
+
+  *{ box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body{
+    width: 8.5in;
+    height: 11in;
+    overflow: hidden;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body{
+    font-family: "Inter", -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #e8eaee;
+    background:
+      radial-gradient(9in 6in at 30% -5%, #101826 0%, #0b0f14 55%, #060a0f 100%);
+    position: relative;
+  }
+
+  .mono{ font-family: "SF Mono", Menlo, Monaco, Consolas, monospace; }
+
+  /* Starfield + grid, confined to the top third */
+  .sky{
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3.6in;
+    pointer-events: none;
+    background-image:
+      radial-gradient(1.5px 1.5px at 8% 22%, rgba(255,255,255,.7), transparent 60%),
+      radial-gradient(1px 1px at 21% 61%, rgba(255,255,255,.45), transparent 60%),
+      radial-gradient(1.5px 1.5px at 34% 15%, rgba(255,255,255,.55), transparent 60%),
+      radial-gradient(1px 1px at 47% 45%, rgba(255,255,255,.4), transparent 60%),
+      radial-gradient(1.5px 1.5px at 61% 27%, rgba(110,231,255,.5), transparent 60%),
+      radial-gradient(1px 1px at 72% 66%, rgba(255,255,255,.45), transparent 60%),
+      radial-gradient(1.5px 1.5px at 85% 19%, rgba(255,255,255,.6), transparent 60%),
+      radial-gradient(1px 1px at 93% 52%, rgba(255,255,255,.4), transparent 60%),
+      linear-gradient(rgba(110,231,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(110,231,255,.05) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                     100% 100%, 100% 100%, 100% 100%, .5in .5in, .5in .5in;
+    -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+            mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+  }
+
+  .page{
+    position: relative;
+    height: 11in;
+    padding: .5in;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ---- Header band ---- */
+  .header{
+    display: flex;
+    align-items: center;
+    gap: .35in;
+    padding-bottom: .14in;
+  }
+
+  .logo-wrap{
+    flex: 0 0 2.5in;
+    background: radial-gradient(60% 60% at 50% 50%, rgba(243,239,230,.10), transparent 75%);
+    border-radius: .2in;
+    padding: .08in;
+  }
+
+  .logo-wrap img{ width: 100%; height: auto; display: block; }
+
+  .headline{
+    flex: 1;
+    text-align: right;
+  }
+
+  .headline .kicker{
+    font-size: 9pt;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #8dff95;
+    margin-bottom: 6pt;
+  }
+
+  .headline h1{
+    font-size: 27pt;
+    line-height: 1.08;
+    font-weight: 800;
+    color: #f3efe6;
+    letter-spacing: -.01em;
+  }
+
+  .headline .rule{
+    display: inline-block;
+    width: 1.6in;
+    height: 3pt;
+    margin-top: 7pt;
+    border-radius: 2pt;
+    background: linear-gradient(90deg, transparent, #dc2626);
+  }
+
+  /* ---- Terminal facts strip ---- */
+  .facts{
+    display: flex;
+    justify-content: center;
+    gap: 8pt;
+    padding: 7pt 0;
+    border-top: 1px solid rgba(141,255,149,.30);
+    border-bottom: 1px solid rgba(141,255,149,.30);
+    font-size: 10pt;
+    font-weight: 700;
+    color: #8dff95;
+    letter-spacing: .02em;
+  }
+
+  .facts .sep{ color: rgba(141,255,149,.45); }
+
+  /* ---- Mission ---- */
+  .mission{
+    text-align: center;
+    padding: .14in .3in .16in;
+    font-size: 12.5pt;
+    line-height: 1.5;
+    color: #e8eaee;
+  }
+
+  .mission strong{ color: #f3efe6; }
+
+  /* ---- Section labels ---- */
+  .label{
+    font-size: 9pt;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #8dff95;
+    margin-bottom: 8pt;
+  }
+
+  /* ---- Why sponsor bullets (2x2) ---- */
+  .why{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8pt 20pt;
+    margin-bottom: .16in;
+  }
+
+  .why div{
+    font-size: 10.5pt;
+    line-height: 1.45;
+    color: #c7cdd6;
+    padding-left: 13pt;
+    position: relative;
+  }
+
+  .why div::before{
+    content: ">";
+    position: absolute;
+    left: 0;
+    font-family: "SF Mono", Menlo, monospace;
+    font-weight: 700;
+    color: #8dff95;
+  }
+
+  .why strong{ color: #f3efe6; }
+
+  /* ---- Needs cards ---- */
+  .needs{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10pt;
+    margin-bottom: .16in;
+  }
+
+  .need{
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 10pt;
+    background: linear-gradient(180deg, rgba(15,23,42,.85), rgba(15,23,42,.55));
+    padding: 11pt 11pt 12pt;
+  }
+
+  .need .chip{
+    display: inline-block;
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 8pt;
+    font-weight: 700;
+    color: #6ee7ff;
+    border: 1px solid rgba(110,231,255,.45);
+    border-radius: 6pt;
+    padding: 2pt 6pt;
+    margin-bottom: 7pt;
+  }
+
+  .need h3{
+    font-size: 11.5pt;
+    font-weight: 700;
+    color: #f3efe6;
+    line-height: 1.25;
+    margin-bottom: 5pt;
+  }
+
+  .need p{
+    font-size: 9.5pt;
+    line-height: 1.4;
+    color: #c7cdd6;
+  }
+
+  /* ---- Impact band ---- */
+  .impact{
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 10pt;
+    padding: 11pt 14pt;
+    font-size: 10.5pt;
+    line-height: 1.5;
+    color: #c7cdd6;
+    margin-bottom: .16in;
+  }
+
+  .impact strong{ color: #f3efe6; }
+
+  /* ---- CTA ---- */
+  .cta{
+    border: 1.5px solid rgba(220,38,38,.75);
+    border-radius: 12pt;
+    background: linear-gradient(180deg, rgba(220,38,38,.16), rgba(220,38,38,.07));
+    padding: 12pt 18pt;
+    text-align: center;
+  }
+
+  .cta h2{
+    font-size: 15.5pt;
+    font-weight: 800;
+    color: #f3efe6;
+    margin-bottom: 6pt;
+  }
+
+  .cta p{
+    font-size: 10pt;
+    line-height: 1.45;
+    color: #c7cdd6;
+  }
+
+  .cta .contact{
+    display: inline-block;
+    margin-top: 8pt;
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #8dff95;
+    border: 1px solid rgba(141,255,149,.35);
+    border-radius: 8pt;
+    padding: 6pt 12pt;
+  }
+
+  /* ---- Footer ---- */
+  .foot{
+    margin-top: auto;
+    text-align: center;
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 10pt;
+    font-weight: 700;
+    letter-spacing: .18em;
+    color: #8dff95;
+  }
+
+  .foot .dim{
+    display: block;
+    margin-top: 4pt;
+    font-size: 8pt;
+    font-weight: 400;
+    letter-spacing: .06em;
+    color: #9aa3af;
+  }
+</style>
+</head>
+<body>
+  <div class="sky"></div>
+
+  <div class="page">
+
+    <div class="header">
+      <div class="logo-wrap">
+        <img src="images/BSides-Rocket City-Logo.png" alt="BSides Rocket City logo" />
+      </div>
+      <div class="headline">
+        <div class="kicker mono">// free · community-run · hacker-built</div>
+        <h1>Why Sponsor<br />BSides Rocket City?</h1>
+        <span class="rule"></span>
+      </div>
+    </div>
+
+    <div class="facts mono">
+      <span>&gt; SAT 2027-03-20</span><span class="sep">//</span>
+      <span>CALHOUN COMMUNITY COLLEGE</span><span class="sep">//</span>
+      <span>HUNTSVILLE, AL</span><span class="sep">//</span>
+      <span>FREE TO ATTEND</span>
+    </div>
+
+    <div class="mission">
+      BSides Rocket City is Huntsville's free, volunteer-run information security conference —
+      a day of technical talks, hands-on workshops, and villages where students, hackers, defenders,
+      and rocket scientists learn from each other. <strong>Sponsors are how it stays free.</strong>
+    </div>
+
+    <div>
+      <div class="label mono">// why_sponsor</div>
+      <div class="why">
+        <div><strong>Keep it free.</strong> Every sponsor dollar removes a barrier between a curious student and their first security conference.</div>
+        <div><strong>100% volunteer-run.</strong> Nobody is paid. Sponsorship goes directly into food, badges, and the event itself.</div>
+        <div><strong>Invest where you hire.</strong> Support the pipeline of students and first-time speakers entering Huntsville's cyber and space-cyber workforce.</div>
+        <div><strong>Community, not a trade show.</strong> On-site sponsor presence stays minimal and tasteful — your support speaks for itself.</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="label mono">// what_we_need</div>
+      <div class="needs">
+        <div class="need">
+          <span class="chip">AM</span>
+          <h3>Donuts / Coffee / Breakfast</h3>
+          <p>Fuel the morning that turns strangers into a community.</p>
+        </div>
+        <div class="need">
+          <span class="chip">NOON</span>
+          <h3>Lunch</h3>
+          <p>Keep everyone on-site, fed, and mid-conversation.</p>
+        </div>
+        <div class="need">
+          <span class="chip">BADGE</span>
+          <h3>Wearable Badges</h3>
+          <p>The artifact attendees wear all day and keep for years.</p>
+        </div>
+        <div class="need">
+          <span class="chip">SIGNS</span>
+          <h3>Banners / Logos</h3>
+          <p>Signage and printed materials across the venue.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="impact">
+      <strong>The honest model:</strong> sponsors may be recognized on our website and select event
+      materials, but sponsorship is community support — not influence. Sponsors don't control talks,
+      the CFP, or the agenda; everyone submits through the same CFP. The community shows up, sponsors
+      keep the lights on, and everyone leaves knowing more than they arrived with.
+    </div>
+
+    <div class="cta">
+      <h2>Sponsor the conference. Keep it free. Fuel the next generation of Rocket City hackers.</h2>
+      <p>Sponsorship contact details coming soon — in the meantime, reach us through our LinkedIn page.</p>
+      <span class="contact">linkedin.com/company/bsides-rocket-city</span>
+    </div>
+
+    <div class="foot">
+      BSIDESROCKETCITY.ORG
+      <span class="dim">BSides Rocket City · Bridging the Gap from Student to Rocket Scientist</span>
+    </div>
+
+  </div>
+</body>
+</html>
