@@ -512,6 +512,20 @@ p{ line-height:1.55; color: rgba(229,231,235,.92); }
 
 .notice p{ margin: 0; }
 
+/* ---------- CFP review waves ---------- */
+.review-waves{
+  margin-top: 34px;
+}
+
+.review-waves .waves-heading{
+  font-size: clamp(20px, 2.4vw, 26px);
+}
+
+.review-waves .waves-heading .mono-line{
+  display: block;
+  margin-bottom: 6px;
+}
+
 /* ---------- Timeline ---------- */
 .timeline{
   list-style: none;
